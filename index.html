@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -669,6 +669,7 @@ a.tag:hover {
 .ref .doi {
   font-family: var(--font-mono);
   font-size: 11px;
+
   color: var(--us-rojo);
   margin-top: 4px;
   display: block;
@@ -683,6 +684,205 @@ a.tag:hover {
   border-radius: 2px;
   margin-right: 6px;
   vertical-align: middle;
+}
+
+/* ── DIGCOMP 3.0 ── */
+.dc-intro {
+  background: var(--us-blanco);
+  border: 1px solid var(--us-borde);
+  border-left: 4px solid var(--us-amarillo);
+  border-radius: 0 6px 6px 0;
+  padding: 20px 28px;
+  margin-bottom: 28px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.dc-areas-hdr {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  background: var(--us-rojo);
+  color: var(--us-blanco);
+  padding: 10px 20px;
+  border-radius: 6px 6px 0 0;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.dc-area {
+  background: var(--us-blanco);
+  border-left: 1px solid var(--us-borde);
+  border-right: 1px solid var(--us-borde);
+  border-bottom: 1px solid var(--us-borde);
+  transition: background 0.15s;
+  cursor: pointer;
+}
+.dc-area:last-of-type { border-radius: 0 0 6px 6px; }
+.dc-area:hover { background: #fdf5f6; }
+.dc-area.open { background: #fdf5f6; }
+.dc-area-row {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  padding: 14px 20px;
+  align-items: center;
+  gap: 14px;
+}
+.dc-anum {
+  font-family: var(--font-mono);
+  font-size: 1.7rem;
+  font-weight: 500;
+  color: var(--us-rojo);
+  line-height: 1;
+}
+.dc-anum small {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: var(--us-gris);
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+.dc-area-label {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 1px;
+  color: var(--us-rojo);
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+.dc-area-title {
+  font-weight: 600;
+  font-size: 14.5px;
+  color: var(--us-negro);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.dc-area-subtitle {
+  font-size: 12px;
+  color: var(--us-texto-suave);
+  margin-top: 3px;
+}
+.dc-area-body {
+  display: none;
+  padding: 2px 20px 22px 76px;
+  animation: fadeIn 0.18s ease;
+}
+.dc-area.open .dc-area-body { display: block; }
+.dc-area.open .arrow { transform: rotate(90deg); color: var(--us-rojo); }
+.dc-comps { list-style: none; }
+.dc-comps li {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0eeeb;
+  align-items: baseline;
+}
+.dc-comps li:last-child { border-bottom: none; }
+.dc-comp-code {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--us-rojo);
+}
+.dc-comp-name { font-size: 13px; font-weight: 600; color: var(--us-negro); }
+.dc-comp-desc { font-size: 12.5px; color: var(--us-texto-suave); margin-top: 3px; line-height: 1.55; }
+.dc-levels { margin-top: 32px; }
+.dc-levels h3 {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--us-rojo);
+  margin-bottom: 16px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--us-rojo);
+  display: inline-block;
+}
+.dc-levels-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.dc-nivel {
+  background: var(--us-blanco);
+  border: 1px solid var(--us-borde);
+  border-radius: 6px;
+  padding: 18px 20px;
+  position: relative;
+  overflow: hidden;
+}
+.dc-nivel::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+.dc-nivel:nth-child(1)::before { background: #4A9B6F; }
+.dc-nivel:nth-child(2)::before { background: #1A6FA8; }
+.dc-nivel:nth-child(3)::before { background: #BE0F2E; }
+.dc-nivel:nth-child(4)::before { background: #7B3FBE; }
+.dc-nivel-num {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.dc-nivel:nth-child(1) .dc-nivel-num { color: #4A9B6F; }
+.dc-nivel:nth-child(2) .dc-nivel-num { color: #1A6FA8; }
+.dc-nivel:nth-child(3) .dc-nivel-num { color: #BE0F2E; }
+.dc-nivel:nth-child(4) .dc-nivel-num { color: #7B3FBE; }
+.dc-nivel h4 { font-size: 13px; font-weight: 700; color: var(--us-negro); margin-bottom: 6px; }
+.dc-nivel p { font-size: 12px; color: var(--us-texto-suave); line-height: 1.55; }
+.dc-ai-note {
+  background: #FEF4E7;
+  border: 1px solid #F5C98A;
+  border-radius: 6px;
+  padding: 14px 20px;
+  font-size: 13px;
+  color: #7A3A00;
+  margin-top: 20px;
+  line-height: 1.7;
+}
+.dc-ai-note a { color: #7A3A00; font-weight: 600; }
+
+/* ── SESION DIGCOMP TAGS ── */
+.sesion-digcomp {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--us-borde);
+}
+.sdc-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--us-rojo);
+  white-space: nowrap;
+  margin-right: 4px;
+}
+.sdc-comp {
+  background: var(--us-rojo-pale);
+  border: 1px solid #e8b5bf;
+  border-radius: 3px;
+  padding: 2px 10px;
+  font-size: 12px;
+  color: var(--us-negro);
+}
+.sdc-comp b {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--us-rojo);
+  margin-right: 3px;
 }
 
 .recursos-grid {
@@ -742,6 +942,7 @@ footer .f-red { color: var(--us-rojo); }
   main { padding: 36px 20px 60px; }
   .two-col, .eval-grid { grid-template-columns: 1fr; }
   .three-col, .recursos-grid { grid-template-columns: 1fr 1fr; }
+  .dc-levels-grid { grid-template-columns: 1fr 1fr; }
   .sesiones-table-hdr { display: none; }
   .sesion-row { grid-template-columns: 55px 1fr; }
   .stype, .shoras { display: none; }
@@ -752,6 +953,8 @@ footer .f-red { color: var(--us-rojo); }
 }
 @media(max-width: 560px) {
   .three-col, .recursos-grid { grid-template-columns: 1fr; }
+  .dc-levels-grid { grid-template-columns: 1fr; }
+  .dc-area-body { padding-left: 20px; }
   .header-pills { gap: 6px; }
 }
 </style>
@@ -828,7 +1031,7 @@ footer .f-red { color: var(--us-rojo); }
         <li>Gestionar la identidad digital, la marca personal y la presencia en redes profesionales</li>
         <li>Aplicar criterios de ciberseguridad y garantizar el cumplimiento del RGPD en contextos laborales</li>
         <li>Analizar críticamente el impacto de la IA, la automatización y el big data en el mercado de trabajo</li>
-        <li>Desarrollar competencias digitales de nivel avanzado según el marco DigComp 2.2</li>
+        <li>Desarrollar competencias digitales de nivel avanzado según el marco DigComp 3.0</li>
       </ul>
     </div>
     <div class="card">
@@ -872,6 +1075,8 @@ footer .f-red { color: var(--us-rojo); }
     </div>
   </div>
 </section>
+
+
 
 <!-- ══════════════════════════════════ -->
 <!-- 02. PROFESOR                       -->
@@ -964,7 +1169,7 @@ footer .f-red { color: var(--us-rojo); }
     </div>
     <p class="bloque-desc">Análisis prospectivo de las tecnologías que reconfiguran el empleo: inteligencia artificial generativa, automatización, big data y people analytics, economía de plataformas y teletrabajo. Implicaciones para la orientación y la formación profesional del futuro. Presentaciones finales de proyectos.</p>
     <div class="tags">
-      <a class="tag" href="https://es.wikipedia.org/wiki/Inteligencia_artificial_generativa" target="_blank" rel="noopener">IA generativa (ChatGPT, Copilot)</a><a class="tag" href="https://es.wikipedia.org/wiki/Automatizaci%C3%B3n" target="_blank" rel="noopener">Automatización y robotización</a><a class="tag" href="https://es.wikipedia.org/wiki/Big_data" target="_blank" rel="noopener">Big Data · People Analytics</a><a class="tag" href="https://es.wikipedia.org/wiki/Gig_economy" target="_blank" rel="noopener">Gig economy</a><a class="tag" href="https://es.wikipedia.org/wiki/Teletrabajo" target="_blank" rel="noopener">Teletrabajo</a><a class="tag" href="https://joint-research-centre.ec.europa.eu/digcomp/digcomp-framework_en" target="_blank" rel="noopener">DigComp 2.2</a><span class="tag">Proyecto final</span>
+      <a class="tag" href="https://es.wikipedia.org/wiki/Inteligencia_artificial_generativa" target="_blank" rel="noopener">IA generativa (ChatGPT, Copilot)</a><a class="tag" href="https://es.wikipedia.org/wiki/Automatizaci%C3%B3n" target="_blank" rel="noopener">Automatización y robotización</a><a class="tag" href="https://es.wikipedia.org/wiki/Big_data" target="_blank" rel="noopener">Big Data · People Analytics</a><a class="tag" href="https://es.wikipedia.org/wiki/Gig_economy" target="_blank" rel="noopener">Gig economy</a><a class="tag" href="https://es.wikipedia.org/wiki/Teletrabajo" target="_blank" rel="noopener">Teletrabajo</a><a class="tag" href="https://joint-research-centre.ec.europa.eu/projects-and-activities/education-and-training/digital-transformation-education/digital-competence-framework-digcomp/digcomp-30_en" target="_blank" rel="noopener">DigComp 3.0</a><span class="tag">Proyecto final</span>
     </div>
   </div>
 </section>
@@ -992,40 +1197,50 @@ footer .f-red { color: var(--us-rojo); }
       <div class="shoras">2 h</div>
     </div>
     <div class="sesion-body">
-      <div class="sesion-objetivos">Obj.: Contextualizar el rol de las TIC en el mercado laboral actual. Diagnosticar el nivel de competencia digital del grupo. Establecer el marco conceptual de la asignatura.</div>
+      <div class="sesion-objetivos">Obj.: Contextualizar el rol de las TIC en el mercado laboral actual. Diagnosticar el nivel de competencia digital del grupo. Establecer el marco conceptual de la asignatura y presentar el DigComp 3.0 como hilo conductor del curso.</div>
       <div class="sesion-grid">
         <div class="sblock">
           <h4>Contenidos</h4>
           <ul>
-            <li>Evolución histórica de las TIC y el trabajo: de la ofimática a la IA</li>
-            <li>Conceptos clave: hardware, software, sistemas operativos, firmware</li>
-            <li>El ecosistema digital de la empresa: redes, servidores, dispositivos</li>
-            <li>Transformación digital: definición, fases y casos en España</li>
-            <li>Brecha digital, brecha de género digital y accesibilidad tecnológica</li>
-            <li>Marco DigComp 2.2: competencias digitales para ciudadanos y trabajadores</li>
-            <li>Presentación del programa, metodología y sistema de evaluación</li>
+            <li>Evolución histórica de las TIC y el trabajo: de la ofimática a la IA generativa</li>
+            <li>Conceptos clave: hardware, software, sistemas operativos, firmware, dispositivos IoT</li>
+            <li>El ecosistema digital de la empresa: redes, servidores, servicios cloud, dispositivos</li>
+            <li>Transformación digital: definición, fases, madurez digital y casos en España y Andalucía</li>
+            <li>Categorías de la brecha digital: generacional, de género, territorial y socioeconómica</li>
+            <li>Indicadores DESI 2024: posición de España y comparativa europea en competencia digital</li>
+            <li>Marco DigComp 3.0: las 5 áreas, 21 competencias y 4 niveles de dominio (visión panorámica)</li>
+            <li>Herramientas de autoevaluación DigComp: DigComp-Sat (JRC) y el modelo INTEF DigComp</li>
+            <li>Presentación del programa, metodología, sistema de evaluación y portfolio digital del curso</li>
           </ul>
         </div>
         <div class="sblock">
           <h4>Actividades</h4>
           <ul>
-            <li><strong>Diagnóstico inicial:</strong> test DigComp autoevaluado (15 min) para mapear el nivel del grupo</li>
-            <li><strong>Debate dirigido:</strong> «¿Qué herramientas digitales uso en mi práctica profesional? ¿Cuáles me faltan?»</li>
-            <li><strong>Kahoot de presentación:</strong> 10 preguntas sobre TIC y mercado laboral actual en España</li>
-            <li><strong>Análisis de infografía:</strong> Índice DESI 2024 — posición de España en digitalización</li>
-            <li><strong>Mural colaborativo (Padlet):</strong> «Tecnologías que han cambiado el trabajo en los últimos 5 años»</li>
+            <li><strong>Autoevaluación DigComp 3.0 (35 min):</strong> cada estudiante completa el cuestionario DigComp-Sat oficial del JRC, descarga su perfil por áreas y lo comparte en un documento colaborativo — se construye el mapa competencial colectivo de la clase en tiempo real (5.4)</li>
+            <li><strong>Kahoot de diagnóstico:</strong> 15 preguntas sobre TIC, mercado laboral y DigComp — punto de partida para el debate inicial</li>
+            <li><strong>Búsqueda y evaluación de fuentes (1.1 + 1.2):</strong> dado un conjunto de 5 URLs sobre «digitalización del trabajo», aplicar el protocolo SIFT (Stop, Investigate, Find, Trace) y clasificarlas por fiabilidad con justificación</li>
+            <li><strong>Padlet colaborativo:</strong> «3 tecnologías que han transformado mi práctica profesional y 1 competencia digital que me falta» — análisis en grupo con Mentimeter</li>
+            <li><strong>Reflexión escrita (Google Forms, anónima):</strong> «¿Qué competencia digital DigComp 3.0 me resulta más urgente como futuro/a orientador/a?» — resultados analizados en directo</li>
           </ul>
         </div>
         <div class="sblock">
           <h4>Recursos y referencias</h4>
           <ul>
-            <li>Comisión Europea (2024). <em>Digital Economy and Society Index (DESI) 2024</em></li>
-            <li>Vuorikari, R. et al. (2022). <em>DigComp 2.2</em>. Publications Office of the EU</li>
-            <li>ONTSI (2024). <em>Informe Anual del Sector TIC y de los Contenidos en España</em></li>
-            <li>Herramientas: Kahoot, Padlet, Test DigComp autoevaluado (JRC)</li>
-            <li>Vídeo introductorio: «La digitalización del mercado laboral» (SEPE, 2023)</li>
+            <li>Comisión Europea (2024). <em>Digital Economy and Society Index (DESI) 2024</em>. digital-strategy.ec.europa.eu</li>
+            <li>Vuorikari, R. et al. (2025). <em>DigComp 3.0: The Digital Competence Framework for Citizens</em>. Publications Office of the EU</li>
+            <li>ONTSI (2024). <em>Informe Anual del Sector TIC y de los Contenidos en España</em>. ontsi.es</li>
+            <li>INTEF (2022). <em>Marco de Competencia Digital Docente 2.0</em>. intef.es</li>
+            <li>JRC (2025). <em>DigComp Self-Assessment Tool (DigComp-Sat)</em>. joint-research-centre.ec.europa.eu</li>
+            <li>Herramientas: Kahoot, Padlet, Mentimeter, Google Forms, DigComp-Sat (JRC)</li>
           </ul>
         </div>
+      </div>
+      <div class="sesion-digcomp">
+        <span class="sdc-label">DigComp 3.0 →</span>
+        <span class="sdc-comp"><b>5.4</b> Identificación de lagunas competenciales</span>
+        <span class="sdc-comp"><b>1.1</b> Navegación, búsqueda y filtrado</span>
+        <span class="sdc-comp"><b>1.2</b> Evaluación de información</span>
+        <span class="sdc-comp"><b>5.3</b> Uso creativo de tecnologías digitales</span>
       </div>
     </div>
   </div>
@@ -1039,39 +1254,50 @@ footer .f-red { color: var(--us-rojo); }
       <div class="shoras">2 h</div>
     </div>
     <div class="sesion-body">
-      <div class="sesion-objetivos">Obj.: Comprender los fundamentos técnicos de las redes de comunicación. Identificar los componentes de red en entornos laborales reales. Conocer los protocolos esenciales de internet.</div>
+      <div class="sesion-objetivos">Obj.: Comprender los fundamentos técnicos de las redes de comunicación. Identificar los componentes de red en entornos laborales reales. Conocer los protocolos esenciales de internet y los dispositivos IoT presentes en organizaciones de orientación y formación.</div>
       <div class="sesion-grid">
         <div class="sblock">
           <h4>Contenidos</h4>
           <ul>
-            <li>Qué es una red: nodos, enlaces, topologías (estrella, malla, bus)</li>
-            <li>Clasificación: LAN, MAN, WAN, PAN, WLAN</li>
-            <li>Redes cableadas (Ethernet, fibra óptica) vs. inalámbricas (Wi-Fi 6E, 5G, Bluetooth)</li>
-            <li>Modelo OSI (7 capas) y modelo TCP/IP: función de cada capa</li>
-            <li>Protocolos fundamentales: IP, TCP, UDP, HTTP/HTTPS, DNS, SMTP, FTP</li>
-            <li>Direccionamiento IPv4 e IPv6: clases, subredes, NAT</li>
-            <li>Dispositivos de red: router, switch, access point, firewall</li>
-            <li>Intranet, extranet e internet: diferencias y aplicaciones en la empresa</li>
+            <li>Qué es una red: nodos, enlaces, topologías (estrella, malla, bus, árbol)</li>
+            <li>Clasificación: LAN, MAN, WAN, PAN, WLAN — casos de uso en entidades de formación</li>
+            <li>Redes cableadas (Ethernet, fibra óptica) vs. inalámbricas (Wi-Fi 6E, 5G, Bluetooth, Zigbee)</li>
+            <li>Modelo OSI (7 capas) y modelo TCP/IP: función de cada capa con ejemplos prácticos</li>
+            <li>Protocolos fundamentales: IP, TCP, UDP, HTTP/HTTPS, DNS, SMTP, IMAP, FTP/SFTP</li>
+            <li>Direccionamiento IPv4 e IPv6: clases, subredes, NAT, DHCP</li>
+            <li>Dispositivos de red: router, switch, access point, firewall, proxy, balanceador de carga</li>
+            <li>Internet de las Cosas (IoT): dispositivos conectados en entornos laborales y sus riesgos de seguridad</li>
+            <li>Ataques de red básicos: DDoS, MITM, sniffing en Wi-Fi públicas — medidas preventivas</li>
+            <li>Huella de carbono de la infraestructura de red: consumo energético y eficiencia</li>
           </ul>
         </div>
         <div class="sblock">
           <h4>Actividades</h4>
           <ul>
-            <li><strong>Mapa conceptual colaborativo:</strong> «Componentes de red de una entidad de formación para el empleo» (Google Jamboard o Miro)</li>
-            <li><strong>Práctica guiada:</strong> uso de herramientas de diagnóstico de red — traceroute, ping, nslookup — desde el aula</li>
-            <li><strong>Análisis de caso:</strong> ¿Por qué cae la red? Diagnóstico de un incidente de conectividad en un centro de orientación</li>
-            <li><strong>Simulación visual:</strong> exploración del simulador Cisco Packet Tracer (versión web) para visualizar flujos de datos</li>
+            <li><strong>Diagnóstico de red real (5.1):</strong> cada estudiante ejecuta desde su dispositivo ipconfig/ifconfig, nslookup y tracert/traceroute, documenta la ruta de su conexión hasta un servidor europeo e identifica qué dispositivos de red atraviesa</li>
+            <li><strong>Caso de incidente (4.1):</strong> «La red del SEPE cae en plena campaña ERTE» — dado un escenario de fallo, los grupos aplican una secuencia estructurada de diagnóstico (síntoma → hipótesis → prueba → solución) y presentan sus conclusiones</li>
+            <li><strong>Mapa de infraestructura colaborativo:</strong> en Miro o Jamboard, diseñar el diagrama de red de una entidad de orientación con 20 puestos, sala de videoconferencia y servidor de datos — justificando los dispositivos elegidos</li>
+            <li><strong>Auditoría IoT (4.4):</strong> listar los dispositivos IoT del aula/centro y estimar su consumo energético anual — proponer medidas de reducción comparando con equivalentes de bajo consumo</li>
+            <li><strong>Simulación Cisco Packet Tracer:</strong> explorar un escenario pre-configurado para visualizar el flujo de un paquete HTTP desde cliente hasta servidor</li>
           </ul>
         </div>
         <div class="sblock">
           <h4>Recursos y referencias</h4>
           <ul>
             <li>Tanenbaum, A. S. y Wetherall, D. J. (2021). <em>Redes de computadoras</em> (6.ª ed.). Pearson</li>
-            <li>Cisco Networking Academy (2024). <em>Introduction to Networks</em>. Cisco Press</li>
-            <li>ITU (2023). <em>Measuring digital development: ICT Price Baskets 2023</em></li>
-            <li>Herramientas: Cisco Packet Tracer (web), Diagrama OSI interactivo</li>
+            <li>Cisco Networking Academy (2024). <em>Introduction to Networks v7</em>. Cisco Press</li>
+            <li>ENISA (2023). <em>IoT Security Guidelines Overview Document</em>. enisa.europa.eu</li>
+            <li>ITU (2024). <em>Measuring digital development: Facts and Figures 2024</em>. itu.int</li>
+            <li>Herramientas: Cisco Packet Tracer (web), Miro / Jamboard, cmd/terminal</li>
           </ul>
         </div>
+      </div>
+      <div class="sesion-digcomp">
+        <span class="sdc-label">DigComp 3.0 →</span>
+        <span class="sdc-comp"><b>4.1</b> Protección de dispositivos</span>
+        <span class="sdc-comp"><b>5.1</b> Resolución de problemas técnicos</span>
+        <span class="sdc-comp"><b>4.4</b> Protección del entorno</span>
+        <span class="sdc-comp"><b>5.2</b> Identificación de necesidades tecnológicas</span>
       </div>
     </div>
   </div>
@@ -1085,39 +1311,50 @@ footer .f-red { color: var(--us-rojo); }
       <div class="shoras">2 h</div>
     </div>
     <div class="sesion-body">
-      <div class="sesion-objetivos">Obj.: Diferenciar los modelos de servicio cloud. Configurar y utilizar entornos de trabajo en la nube. Evaluar las implicaciones de seguridad y legalidad del uso del cloud en servicios de orientación.</div>
+      <div class="sesion-objetivos">Obj.: Diferenciar los modelos de servicio cloud y evaluar su idoneidad para servicios de orientación. Configurar entornos de trabajo colaborativo en la nube. Evaluar las implicaciones de seguridad, RGPD, sostenibilidad y disponibilidad del cloud.</div>
       <div class="sesion-grid">
         <div class="sblock">
           <h4>Contenidos</h4>
           <ul>
-            <li>Definición y características esenciales del cloud computing (NIST)</li>
-            <li>Modelos de servicio: SaaS, PaaS, IaaS — ejemplos aplicados a la orientación</li>
+            <li>Definición y características esenciales del cloud computing (NIST SP 800-145)</li>
+            <li>Modelos de servicio: SaaS, PaaS, IaaS, FaaS — ejemplos aplicados a la orientación laboral</li>
             <li>Modelos de despliegue: nube pública, privada, híbrida y multicloud</li>
-            <li>Grandes proveedores: Google Cloud, Microsoft Azure, Amazon AWS</li>
-            <li>Google Workspace y Microsoft 365 como ecosistemas cloud en la empresa</li>
-            <li>Almacenamiento en la nube: Google Drive, OneDrive, Dropbox</li>
-            <li>Implicaciones jurídicas: localización de datos, RGPD y cloud</li>
-            <li>Virtualización y contenedores: conceptos básicos</li>
+            <li>Grandes proveedores: Google Cloud, Microsoft Azure, Amazon AWS — cuotas de mercado 2024</li>
+            <li>Google Workspace y Microsoft 365 como ecosistemas cloud en organizaciones de empleo</li>
+            <li>Almacenamiento en la nube: Google Drive, OneDrive, Dropbox, Nextcloud (open source)</li>
+            <li>SLAs (Acuerdos de Nivel de Servicio): disponibilidad, RPO, RTO y estrategia de backup 3-2-1</li>
+            <li>Implicaciones jurídicas: localización de datos, transferencias internacionales y RGPD cloud</li>
+            <li>Green cloud computing: huella de carbono de los servicios cloud y certificaciones de sostenibilidad</li>
+            <li>Virtualización y contenedores: conceptos básicos (VM, Docker) y gestión de identidades (SSO, Azure AD)</li>
           </ul>
         </div>
         <div class="sblock">
           <h4>Actividades</h4>
           <ul>
-            <li><strong>Práctica guiada:</strong> configurar estructura de carpetas en Google Drive para un servicio de orientación (permisos, carpetas compartidas, revisión colaborativa)</li>
-            <li><strong>Tabla comparativa colaborativa:</strong> evaluar 3 proveedores cloud (precio, RGPD, funciones) en Google Sheets compartido</li>
-            <li><strong>Caso práctico:</strong> una entidad de inserción laboral migra al cloud — qué servicio elegir y por qué</li>
-            <li><strong>Reflexión escrita (5 min):</strong> ¿Qué datos de usuarios de orientación podría alojar en la nube? ¿Cuáles no? ¿Por qué?</li>
+            <li><strong>Configuración de Drive para orientación (1.3 + 2.4):</strong> cada estudiante crea en Google Drive una estructura de carpetas funcional para un servicio de orientación (expedientes, recursos, plantillas, comunicaciones), configura permisos por rol y la documenta con capturas comentadas</li>
+            <li><strong>Comparativa RGPD-Cloud (4.2 + 5.2):</strong> usando la Guía INCIBE, evaluar Google Workspace for Education y Microsoft 365 Education contra una lista de verificación de conformidad RGPD — ¿cuál recomendarías a una entidad pública de orientación?</li>
+            <li><strong>Caso práctico de migración:</strong> una asociación de inserción laboral migra al cloud con 15 empleados y datos de 500 usuarios — grupos de trabajo debaten qué servicio elegir justificando con criterios de coste, seguridad, RGPD y sostenibilidad</li>
+            <li><strong>Reflexión estructurada (4.2):</strong> «¿Qué datos de usuarios de orientación puedo alojar en Google Drive? ¿Cuáles requieren solución on-premise?» — producir un árbol de decisión de 2 niveles</li>
           </ul>
         </div>
         <div class="sblock">
           <h4>Recursos y referencias</h4>
           <ul>
-            <li>INCIBE (2023). <em>Guía de seguridad en servicios cloud para PYMEs</em></li>
+            <li>INCIBE (2023). <em>Guía cloud para empresas: seguridad y aspectos jurídicos</em>. incibe.es</li>
             <li>Mell, P. y Grance, T. (2011/rev. 2024). <em>The NIST Definition of Cloud Computing</em>. NIST SP 800-145</li>
-            <li>Marston, S. et al. (2021). «Cloud computing and its role in organizational sustainability». <em>Journal of Cloud Computing</em>, 10(1)</li>
-            <li>Herramientas: Google Drive, Google Sheets, Microsoft OneDrive</li>
+            <li>AEPD (2023). <em>Guía sobre cloud computing y protección de datos</em>. aepd.es</li>
+            <li>Green Software Foundation (2024). <em>Software Carbon Intensity Specification</em>. greensoftware.foundation</li>
+            <li>Herramientas: Google Drive, Microsoft OneDrive, Nextcloud demo, Google Sheets</li>
           </ul>
         </div>
+      </div>
+      <div class="sesion-digcomp">
+        <span class="sdc-label">DigComp 3.0 →</span>
+        <span class="sdc-comp"><b>1.3</b> Gestión de datos e información digital</span>
+        <span class="sdc-comp"><b>4.2</b> Protección de datos personales</span>
+        <span class="sdc-comp"><b>4.4</b> Protección del entorno</span>
+        <span class="sdc-comp"><b>5.2</b> Identificación de necesidades tecnológicas</span>
+        <span class="sdc-comp"><b>2.4</b> Colaboración mediante tecnologías digitales</span>
       </div>
     </div>
   </div>
@@ -1131,28 +1368,31 @@ footer .f-red { color: var(--us-rojo); }
       <div class="shoras">2 h</div>
     </div>
     <div class="sesion-body">
-      <div class="sesion-objetivos">Obj.: Manejar con solvencia herramientas ofimáticas en entornos colaborativos. Gestionar la comunicación y coordinación de equipos de orientación mediadas por tecnología.</div>
+      <div class="sesion-objetivos">Obj.: Dominar herramientas ofimáticas avanzadas en entornos colaborativos. Aplicar buenas prácticas de co-creación, accesibilidad y netiqueta digital. Automatizar flujos de trabajo básicos para servicios de orientación.</div>
       <div class="sesion-grid">
         <div class="sblock">
           <h4>Contenidos</h4>
           <ul>
-            <li>Microsoft 365 y Google Workspace: ecosistemas y diferencias clave</li>
-            <li>Documentos colaborativos en tiempo real: co-autoría, control de versiones, comentarios</li>
-            <li>Hojas de cálculo para la orientación: seguimiento de itinerarios, estadísticas de inserción</li>
-            <li>Presentaciones avanzadas: Canva, Prezi, Google Slides con datos embebidos</li>
-            <li>Herramientas de comunicación de equipo: Microsoft Teams, Google Meet, Slack</li>
-            <li>Gestión de proyectos y tareas: Trello, Asana, Notion, ClickUp</li>
-            <li>Firma electrónica y documentación digital: DocuSign, Adobe Sign, @firma</li>
-            <li>Formularios digitales: Google Forms y Microsoft Forms para recogida de datos</li>
+            <li>Microsoft 365 y Google Workspace: ecosistemas, diferencias, criterios de elección</li>
+            <li>Documentos colaborativos en tiempo real: co-autoría, control de versiones, historial y comentarios</li>
+            <li>Hojas de cálculo avanzadas: tablas dinámicas, BUSCARV/XLOOKUP, gráficos y dashboards para seguimiento de inserción laboral</li>
+            <li>Presentaciones avanzadas: Canva, Prezi, Google Slides con datos embebidos en tiempo real</li>
+            <li>Comunicación de equipo: Microsoft Teams, Google Meet, Slack — protocolos y buenas prácticas (2.5)</li>
+            <li>Gestión de proyectos y tareas: Trello, Asana, Notion, ClickUp — kanban para servicios de orientación</li>
+            <li>Firma electrónica y documentación digital: DocuSign, Adobe Sign, @firma (Administración Pública)</li>
+            <li>Formularios digitales con lógica condicional: Google Forms y Microsoft Forms para recogida de datos de usuarios</li>
+            <li>IA integrada en suites: Copilot (M365) y Gemini (Workspace) — uso responsable y crítico (1.2)</li>
+            <li>Accesibilidad en documentos digitales: comprobador de Word/Docs y pautas WCAG básicas</li>
           </ul>
         </div>
         <div class="sblock">
           <h4>Actividades</h4>
           <ul>
-            <li><strong>Taller práctico:</strong> crear un «Plan de Orientación Individual» (POI) colaborativo en Google Docs con control de cambios y asignación de tareas por comentarios</li>
-            <li><strong>Práctica de seguimiento:</strong> diseñar una hoja de cálculo Google Sheets para registrar indicadores de inserción laboral de 20 usuarios ficticios (tasa de inserción, tiempo hasta empleo, sectores)</li>
-            <li><strong>Simulación de reunión:</strong> coordinación de equipo de orientación en Google Meet con agenda compartida y acta colaborativa en tiempo real</li>
-            <li><strong>Tablero Trello:</strong> organizar el flujo de trabajo de un servicio de orientación (captación → diagnóstico → itinerario → seguimiento → cierre)</li>
+            <li><strong>POI colaborativo (2.4 + 3.1):</strong> en Google Docs, elaborar un «Plan de Orientación Individual» para un usuario ficticio — usando control de cambios, comentarios con menciones y etiquetas de responsabilidad, simulando trabajo en equipo asíncrono con protocolo de netiqueta definido</li>
+            <li><strong>Dashboard de inserción (3.1 + 3.2):</strong> construir en Google Sheets una hoja de seguimiento de 20 usuarios con tabla dinámica, gráfico de tasa de inserción por sector y alerta condicional — framing explícito como 3.1 (crear contenido estructurado de valor profesional)</li>
+            <li><strong>Tablero Trello del servicio:</strong> diseñar el flujo de trabajo completo (captación → diagnóstico → itinerario → seguimiento → cierre) con tarjetas, checklists, fechas límite y etiquetas de urgencia</li>
+            <li><strong>Auditoría de accesibilidad (3.1):</strong> pasar el comprobador de accesibilidad de Word o Google Docs a un documento propio, identificar y corregir los 3 errores más críticos, documentando cada corrección</li>
+            <li><strong>Uso crítico de IA (1.2):</strong> usar Copilot o Gemini para redactar un párrafo de informe de orientación, luego evaluar el resultado con la rúbrica DigComp 1.2 adaptada a outputs de IA — ¿es fiable? ¿qué correcciones requiere?</li>
           </ul>
         </div>
         <div class="sblock">
@@ -1160,10 +1400,19 @@ footer .f-red { color: var(--us-rojo); }
           <ul>
             <li>Caballero, R. y Benítez, J. (2022). «Digital tools in career guidance». <em>Journal of Vocational Behavior</em>, 135</li>
             <li>Microsoft (2024). <em>Microsoft 365 Learning Center</em>. microsoft.com/learning</li>
-            <li>Google (2024). <em>Google Workspace Learning Center</em>. workspace.google.com/learning-center</li>
-            <li>Herramientas: Google Workspace, Trello, Canva, Microsoft Teams</li>
+            <li>Google (2024). <em>Google Workspace Learning Center</em>. workspace.google.com</li>
+            <li>Microsoft (2024). <em>Accessibility Checker support</em>. support.microsoft.com</li>
+            <li>Herramientas: Google Workspace, Trello, Canva, Microsoft Teams, Copilot/Gemini</li>
           </ul>
         </div>
+      </div>
+      <div class="sesion-digcomp">
+        <span class="sdc-label">DigComp 3.0 →</span>
+        <span class="sdc-comp"><b>2.4</b> Colaboración mediante tecnologías digitales</span>
+        <span class="sdc-comp"><b>3.1</b> Desarrollo de contenidos digitales</span>
+        <span class="sdc-comp"><b>3.2</b> Integración y reelaboración de contenidos</span>
+        <span class="sdc-comp"><b>2.5</b> Comportamiento en la red</span>
+        <span class="sdc-comp"><b>1.2</b> Evaluación de información y outputs de IA</span>
       </div>
     </div>
   </div>
@@ -1177,39 +1426,51 @@ footer .f-red { color: var(--us-rojo); }
       <div class="shoras">2 h</div>
     </div>
     <div class="sesion-body">
-      <div class="sesion-objetivos">Obj.: Conocer y utilizar los principales recursos digitales del sistema de orientación profesional en España. Elaborar y optimizar el CV digital y el perfil Europass. Diseñar mapas de recursos para diferentes perfiles de usuario.</div>
+      <div class="sesion-objetivos">Obj.: Conocer y comparar críticamente los recursos digitales del sistema de orientación profesional en España. Elaborar y optimizar el CV digital y el perfil Europass con enfoque ATS. Diseñar mapas de recursos personalizados por perfil de usuario.</div>
       <div class="sesion-grid">
         <div class="sblock">
           <h4>Contenidos</h4>
           <ul>
-            <li>Ecosistema digital de orientación en España: SEPE, SPPE, SOC, Lanbide, INAEM</li>
-            <li>Portales de empleo nacionales e internacionales: InfoJobs, Indeed, Eures, LinkedIn Jobs, Glassdoor</li>
-            <li>Portales especializados: Infoempleo, Turijobs, Tecnoempleo, Agrempleo</li>
-            <li>CV digital: formatos, plataformas, ATS (Applicant Tracking Systems) y palabras clave</li>
-            <li>CV Europass digital: estructura, competencias clave y uso en movilidad europea</li>
-            <li>Portafolio digital para la búsqueda de empleo: Behance, GitHub Pages, WordPress</li>
-            <li>Herramientas de autodiagnóstico competencial online: SIGO (SEPE), MatchWork</li>
-            <li>Videoentrevista: plataformas (HireVue, Jobvite) y pautas para orientar al usuario</li>
+            <li>Ecosistema digital de orientación en España: SEPE, SAE/Andalucía, SOC, Lanbide, INAEM, INEM histórico</li>
+            <li>Portales de empleo nacionales e internacionales: InfoJobs, Indeed, Eures, LinkedIn Jobs, Glassdoor, Talent.com</li>
+            <li>Portales especializados: Infoempleo, Turijobs, Tecnoempleo, Agrempleo, Trabajos.com</li>
+            <li>ATS (Applicant Tracking Systems): cómo funcionan, palabras clave semánticas y optimización de CV</li>
+            <li>CV digital: formatos (cronológico, funcional, combinado), plataformas y herramientas de diseño</li>
+            <li>CV Europass digital 2024: estructura actualizada, competencias digitales y uso en movilidad europea</li>
+            <li>Credenciales digitales y micro-credenciales: OpenBadges, Europass Digital Credentials</li>
+            <li>Portafolio digital para la búsqueda de empleo: Behance, GitHub Pages, WordPress, Notion</li>
+            <li>IA para la búsqueda de empleo: uso de ChatGPT para adaptar CV y carta de presentación — límites éticos</li>
+            <li>Videoentrevista asíncrona y síncrona: plataformas (HireVue, Jobvite) y pautas de orientación al usuario</li>
           </ul>
         </div>
         <div class="sblock">
           <h4>Actividades</h4>
           <ul>
-            <li><strong>Exploración guiada:</strong> comparar la misma oferta de empleo en SEPE, InfoJobs e Indeed — análisis de diferencias en descripción, requisitos y proceso de candidatura</li>
-            <li><strong>Elaboración CV Europass:</strong> cada estudiante crea o actualiza su CV Europass digital en europass.europa.eu</li>
-            <li><strong>Análisis de ATS:</strong> pasar un CV por una herramienta de análisis ATS (JobScan versión free) e identificar mejoras</li>
-            <li><strong>Mapa de recursos digitales:</strong> por parejas, diseñar un «mapa de recursos online» para un perfil tipo de usuario de orientación (desempleado de larga duración, +45 años, sector industrial)</li>
+            <li><strong>Auditoría comparativa de portales (1.1 + 1.2):</strong> buscar la misma oferta en SEPE, InfoJobs e Indeed — comparar descripción, requisitos, salario, algoritmo de matching y accesibilidad, con rúbrica de evaluación de fuentes DigComp 1.2</li>
+            <li><strong>CV Europass digital:</strong> cada estudiante crea o actualiza su perfil completo en europass.europa.eu — incluyendo sección de competencias digitales referenciada a DigComp 3.0</li>
+            <li><strong>Análisis ATS con JobScan:</strong> pasar el propio CV por JobScan (free tier) contra una oferta real y aplicar las 3 mejoras más impactantes — reflexión sobre el equilibrio entre optimización ATS y autenticidad</li>
+            <li><strong>Adaptación con IA (1.2):</strong> usar ChatGPT para adaptar un CV a 2 ofertas distintas, luego evaluar los resultados con criterios DigComp 1.2 (veracidad, coherencia, riesgos) — debate ético grupal</li>
+            <li><strong>Mapa de recursos por perfil (5.2):</strong> en parejas, diseñar un mapa digital de recursos para un perfil tipo (mayor de 45 años en reconversión, joven NEET, mujer víctima de violencia de género) — herramienta: Genially o Canva</li>
           </ul>
         </div>
         <div class="sblock">
           <h4>Recursos y referencias</h4>
           <ul>
-            <li>SEPE (2024). <em>Informe del Mercado de Trabajo Estatal</em>. sepe.es</li>
-            <li>Europass (2024). <em>Guía de usuario Europass</em>. europass.europa.eu</li>
+            <li>SEPE (2025). <em>Orientación para el empleo: recursos digitales</em>. sepe.es</li>
+            <li>Europass (2025). <em>Digital Credentials y guía de usuario</em>. europass.europa.eu</li>
             <li>Cedefop (2023). <em>Online job vacancy and skills analysis</em>. cedefop.europa.eu</li>
-            <li>Herramientas: SEPE Orienta, InfoJobs, Europass digital, JobScan (free)</li>
+            <li>Pérez-Escoda, A. et al. (2022). «Social networks and employability». <em>Sustainability</em>, 14(3)</li>
+            <li>Herramientas: SEPE Orienta, InfoJobs, Europass digital, JobScan (free), Canva/Genially</li>
           </ul>
         </div>
+      </div>
+      <div class="sesion-digcomp">
+        <span class="sdc-label">DigComp 3.0 →</span>
+        <span class="sdc-comp"><b>1.1</b> Navegación, búsqueda y filtrado</span>
+        <span class="sdc-comp"><b>1.2</b> Evaluación de información</span>
+        <span class="sdc-comp"><b>2.6</b> Gestión de la identidad digital</span>
+        <span class="sdc-comp"><b>5.2</b> Identificación de necesidades tecnológicas</span>
+        <span class="sdc-comp"><b>2.3</b> Participación ciudadana digital</span>
       </div>
     </div>
   </div>
@@ -1223,29 +1484,31 @@ footer .f-red { color: var(--us-rojo); }
       <div class="shoras">2 h</div>
     </div>
     <div class="sesion-body">
-      <div class="sesion-objetivos">Obj.: Construir y optimizar la identidad digital profesional. Manejar LinkedIn como herramienta de orientación e inserción. Aplicar estrategias de personal branding a la búsqueda de empleo.</div>
+      <div class="sesion-objetivos">Obj.: Construir y optimizar la identidad digital profesional con criterios DigComp 2.6. Manejar LinkedIn como herramienta de orientación e inserción. Aplicar netiqueta y gestión ética de la privacidad en redes profesionales.</div>
       <div class="sesion-grid">
         <div class="sblock">
           <h4>Contenidos</h4>
           <ul>
-            <li>Identidad digital: componentes, reputación online y huella digital permanente</li>
-            <li>Ego-searching: auditoría de la presencia digital propia</li>
-            <li>LinkedIn: estructura del perfil, algoritmo, tipos de cuenta (free vs. Premium)</li>
-            <li>Optimización SEO del perfil: palabras clave, extracto, titulares y habilidades</li>
-            <li>Estrategias de networking digital: conectar, interactuar, publicar contenido de valor</li>
-            <li>LinkedIn como herramienta de orientación: búsqueda de ofertas, contacto con empresas</li>
-            <li>Personal branding: propuesta de valor, coherencia digital y gestión de la reputación</li>
-            <li>Otras redes profesionales: GitHub (perfiles tech), ResearchGate, Behance</li>
+            <li>Identidad digital: componentes, reputación online, huella digital permanente y derecho al olvido</li>
+            <li>Ego-searching: auditoría sistemática de la presencia digital propia (Google, Bing, imágenes)</li>
+            <li>LinkedIn: estructura del perfil, algoritmo de visibilidad, tipos de cuenta (free vs. Premium)</li>
+            <li>Optimización SEO del perfil: palabras clave semánticas, extracto, titulares, habilidades y recomendaciones</li>
+            <li>LinkedIn Creator Mode: activación, contenido nativo, artículos y newsletter profesional</li>
+            <li>Estrategias de networking digital: conectar, interactuar, publicar contenido de valor, social selling index</li>
+            <li>Gestión de la privacidad en LinkedIn (4.2): configuración de visibilidad, control de datos y permisos de terceros</li>
+            <li>Personal branding: propuesta de valor única, coherencia cross-platform y gestión de crisis de reputación</li>
+            <li>Otras redes profesionales según sector: GitHub (tech), ResearchGate (academia), Behance (diseño), Médicos sin Fronteras Jobs</li>
+            <li>Perspectiva del orientador/a: cómo usar LinkedIn como herramienta de inserción laboral para usuarios</li>
           </ul>
         </div>
         <div class="sblock">
           <h4>Actividades</h4>
           <ul>
-            <li><strong>Ego-search y auditoría:</strong> cada estudiante busca su nombre en Google e identifica su huella digital actual. Análisis en grupo.</li>
-            <li><strong>Taller LinkedIn:</strong> usando la rúbrica de optimización de perfil, cada estudiante audita y mejora al menos 5 elementos de su perfil en tiempo real</li>
-            <li><strong>Redacción asistida por IA:</strong> usar ChatGPT o Copilot para generar un borrador del «extracto» profesional de LinkedIn y luego editarlo con voz propia (reflexión sobre uso ético de IA)</li>
-            <li><strong>Análisis de perfiles modelo:</strong> analizar 3 perfiles LinkedIn de orientadores/as laborales reales — ¿qué tienen en común los más completos?</li>
-            <li><strong>Entrega:</strong> captura del perfil LinkedIn antes y después con reflexión de 200 palabras</li>
+            <li><strong>Auditoría DigComp 2.6:</strong> cada estudiante realiza un ego-search completo y completa la ficha de auditoría de identidad digital (5 indicadores 2.6: completitud, coherencia cross-platform, gestión del pasado, privacidad configurada, ratio profesional/personal) — resultado compartido anónimamente en Mentimeter</li>
+            <li><strong>Taller LinkedIn con rúbrica (2.6):</strong> usando la rúbrica de optimización de perfil basada en descriptores DigComp 2.6, cada estudiante audita y mejora en tiempo real al menos 5 elementos — headline, extracto, experiencia cuantificada, habilidades y foto profesional</li>
+            <li><strong>Extracto asistido por IA + revisión crítica (1.2):</strong> generar un borrador del extracto con ChatGPT/Copilot, editarlo con voz propia y reflexionar sobre autenticidad, sesgos y límites éticos del personal branding con IA</li>
+            <li><strong>Análisis de netiqueta (2.5):</strong> revisar 5 publicaciones LinkedIn reales (anonimizadas) y aplicar la rúbrica DigComp 2.5 — ¿respetan el contexto profesional, la diversidad y las normas de citación?</li>
+            <li><strong>Entrega:</strong> captura del perfil antes/después + reflexión de 250 palabras sobre identidad digital como competencia profesional del orientador/a</li>
           </ul>
         </div>
         <div class="sblock">
@@ -1253,10 +1516,19 @@ footer .f-red { color: var(--us-rojo); }
           <ul>
             <li>Laborda, X. y Martínez, J. (2023). «Digital identity management in job seekers». <em>Comunicar</em>, 31(74)</li>
             <li>LinkedIn (2024). <em>Workforce Insights Report 2024</em>. linkedin.com/business</li>
-            <li>Pérez-Escoda, A. et al. (2022). «Social networks and employability». <em>Sustainability</em>, 14(3)</li>
-            <li>Herramientas: LinkedIn, ChatGPT/Copilot, Rúbrica de perfil (docente)</li>
+            <li>AEPD (2022). <em>Guía de privacidad en redes sociales</em>. aepd.es</li>
+            <li>Hootsuite (2024). <em>Social Media Trends Report 2025</em>. hootsuite.com</li>
+            <li>Herramientas: LinkedIn, ChatGPT/Copilot, rúbrica DigComp 2.6 (docente), Mentimeter</li>
           </ul>
         </div>
+      </div>
+      <div class="sesion-digcomp">
+        <span class="sdc-label">DigComp 3.0 →</span>
+        <span class="sdc-comp"><b>2.6</b> Gestión de la identidad digital</span>
+        <span class="sdc-comp"><b>2.5</b> Comportamiento en la red</span>
+        <span class="sdc-comp"><b>4.2</b> Protección de datos personales</span>
+        <span class="sdc-comp"><b>2.2</b> Intercambio mediante tecnologías digitales</span>
+        <span class="sdc-comp"><b>1.2</b> Evaluación de contenido generado por IA</span>
       </div>
     </div>
   </div>
@@ -1270,38 +1542,50 @@ footer .f-red { color: var(--us-rojo); }
       <div class="shoras">2 h</div>
     </div>
     <div class="sesion-body">
-      <div class="sesion-objetivos">Obj.: Conocer los fundamentos del diseño instruccional para entornos digitales. Diferenciar modalidades e-learning, b-learning y m-learning. Conocer la normativa de formación bonificada online en España.</div>
+      <div class="sesion-objetivos">Obj.: Conocer los fundamentos del diseño instruccional para entornos digitales. Aplicar modelos de diseño (ADDIE, SAM, e-tivities) a acciones de formación para el empleo. Garantizar accesibilidad y calidad en la formación virtual según normativa FUNDAE.</div>
       <div class="sesion-grid">
         <div class="sblock">
           <h4>Contenidos</h4>
           <ul>
-            <li>E-learning, b-learning, m-learning, MOOC: definición, características y diferencias</li>
-            <li>Principales modelos de diseño instruccional: ADDIE, SAM, Gagné (9 eventos)</li>
-            <li>Taxonomía de Bloom revisada aplicada al diseño digital: niveles y verbos de acción</li>
-            <li>Accesibilidad en formación virtual: WCAG 2.2 y diseño universal del aprendizaje (DUA)</li>
-            <li>Normativa de FPE online: RD 694/2017 y requisitos FUNDAE para formación virtual</li>
-            <li>Indicadores de calidad en e-learning: modelo Quality Matters</li>
-            <li>Analítica del aprendizaje (Learning Analytics): qué medir y por qué</li>
+            <li>E-learning, b-learning, m-learning, MOOC, SPOC, microlearning: definición, características y cuándo usar cada modalidad</li>
+            <li>Modelos de diseño instruccional: ADDIE, SAM (Successive Approximation Model), Gagné (9 eventos)</li>
+            <li>E-tivities (modelo Gilly Salmon): 5 fases de actividades colaborativas online para orientación</li>
+            <li>Taxonomía de Bloom revisada digital: niveles cognitivos, verbos de acción y su aplicación al diseño de actividades</li>
+            <li>Diseño Universal para el Aprendizaje (DUA): principios UDL y aplicación práctica en FPE</li>
+            <li>Accesibilidad en formación virtual: WCAG 2.2 nivel AA, subtítulos automáticos, lectores de pantalla</li>
+            <li>Normativa de FPE online: RD 694/2017, requisitos FUNDAE para teleformación y criterios de calidad</li>
+            <li>Estándares de interoperabilidad: SCORM 2004, xAPI (Tin Can) y CMI5 — para qué sirve cada uno</li>
+            <li>IA en el diseño instruccional: herramientas para generar storyboards, cuestionarios y actividades (CourseAI, Curipod)</li>
+            <li>Analítica del aprendizaje (Learning Analytics): métricas clave y toma de decisiones basada en datos</li>
           </ul>
         </div>
         <div class="sblock">
           <h4>Actividades</h4>
           <ul>
-            <li><strong>Análisis comparativo:</strong> revisar una acción formativa de orientación en modalidad presencial y reformularla en formato b-learning, justificando las decisiones de diseño</li>
-            <li><strong>Redacción de objetivos:</strong> transformar 5 objetivos generales en objetivos de aprendizaje específicos y medibles usando la taxonomía de Bloom digital</li>
-            <li><strong>Debate:</strong> ventajas y limitaciones del e-learning en colectivos con baja competencia digital (mayores de 55 años, desempleados de larga duración)</li>
-            <li><strong>Lectura crítica:</strong> análisis de un artículo sobre efectividad del e-learning en FPE (15 min en grupos)</li>
+            <li><strong>Rediseño presencial → b-learning (5.3):</strong> tomar una sesión presencial de orientación grupal (facilitada por el docente) y reconvertirla en un módulo b-learning de 3 semanas, justificando cada decisión de diseño con terminología ADDIE y Bloom</li>
+            <li><strong>E-tivity de nivel 3 (Salmon) (2.4 + 3.1):</strong> diseñar una e-tivity completa (invitación, tarea individual, interacción entre pares, e-moderación, cierre) sobre una competencia para el empleo — incluyendo instrucciones accesibles (DUA)</li>
+            <li><strong>Auditoría WCAG 2.2 (3.1):</strong> evaluar una unidad formativa online del SEPE o FUNDAE con la lista de verificación WCAG 2.2 nivel AA — identificar 3 barreras y proponer soluciones concretas</li>
+            <li><strong>Debate fundamentado:</strong> «¿Puede el e-learning reducir la brecha digital o la amplifica?» — con evidencias de CEDEFOP 2023 y experiencias de colectivos vulnerables</li>
           </ul>
         </div>
         <div class="sblock">
           <h4>Recursos y referencias</h4>
           <ul>
             <li>Zawacki-Richter, O. y Latchem, C. (Eds.) (2022). <em>Instructional Design in Online Learning</em>. Springer</li>
-            <li>FUNDAE (2024). <em>Guía de teleformación: requisitos y buenas prácticas</em>. fundae.es</li>
+            <li>Salmon, G. (2023). <em>E-tivities: The Key to Active Online Learning</em>. 3.ª ed. Routledge</li>
+            <li>FUNDAE (2024). <em>Guía de teleformación: requisitos y buenas prácticas 2024</em>. fundae.es</li>
+            <li>W3C (2024). <em>Web Content Accessibility Guidelines (WCAG) 2.2</em>. w3.org/WAI</li>
             <li>Hodges, C. et al. (2020). «The difference between emergency remote teaching and online learning». <em>EDUCAUSE Review</em></li>
-            <li>García-Peñalvo, F. J. (2021). «Avoiding the dark side of digital transformation». <em>Sustainability</em>, 13(1)</li>
           </ul>
         </div>
+      </div>
+      <div class="sesion-digcomp">
+        <span class="sdc-label">DigComp 3.0 →</span>
+        <span class="sdc-comp"><b>3.1</b> Desarrollo de contenidos digitales</span>
+        <span class="sdc-comp"><b>5.2</b> Identificación de necesidades tecnológicas</span>
+        <span class="sdc-comp"><b>5.3</b> Uso creativo e innovador</span>
+        <span class="sdc-comp"><b>2.4</b> Colaboración mediante tecnologías digitales</span>
+        <span class="sdc-comp"><b>4.3</b> Protección de la salud y bienestar digital</span>
       </div>
     </div>
   </div>
@@ -1315,40 +1599,50 @@ footer .f-red { color: var(--us-rojo); }
       <div class="shoras">2 h</div>
     </div>
     <div class="sesion-body">
-      <div class="sesion-objetivos">Obj.: Conocer la arquitectura y funcionalidades principales de Moodle. Crear y gestionar cursos virtuales en el EVA de la US. Configurar actividades de evaluación online.</div>
+      <div class="sesion-objetivos">Obj.: Conocer la arquitectura y funcionalidades principales de Moodle. Crear y gestionar cursos virtuales aplicados a la formación para el empleo. Configurar actividades de evaluación, analítica del aprendizaje y selección justificada de LMS.</div>
       <div class="sesion-grid">
         <div class="sblock">
           <h4>Contenidos</h4>
           <ul>
-            <li>¿Qué es un LMS? Evolución y panorama actual (Moodle, Canvas, Blackboard, Google Classroom)</li>
-            <li>Arquitectura Moodle: categorías, cursos, secciones, bloques y roles</li>
-            <li>Recursos en Moodle: página, archivo, URL, libro, etiqueta</li>
-            <li>Actividades en Moodle: tarea, foro, cuestionario, wiki, glosario, taller (Workshop)</li>
-            <li>Sistema de calificaciones: rúbricas, guías de calificación y libro de calificaciones</li>
-            <li>Seguimiento de la actividad del estudiante: informes de actividad y completado</li>
-            <li>Integración Moodle con BigBlueButton y Microsoft Teams para videoconferencia</li>
-            <li>EVA Universidad de Sevilla: particularidades y recursos de apoyo</li>
+            <li>¿Qué es un LMS? Evolución y panorama actual: Moodle, Canvas, Blackboard, Google Classroom, Open edX</li>
+            <li>Arquitectura Moodle: categorías, cursos, secciones, bloques, roles y permisos</li>
+            <li>Recursos en Moodle: página, archivo, URL, libro, carpeta, etiqueta, H5P</li>
+            <li>Actividades en Moodle: tarea, foro, cuestionario, wiki, glosario, taller (Workshop), base de datos</li>
+            <li>Sistema de calificaciones: rúbricas, guías de calificación, competencias y libro de calificaciones</li>
+            <li>Analítica del aprendizaje en Moodle: informes de acceso, tiempo en actividades, completado y logs</li>
+            <li>Plugins imprescindibles: Checklist, Attendance, Certificate, H5P Activity, BigBlueButton</li>
+            <li>Buenas prácticas de seguridad en LMS: roles mínimos, contraseñas de matriculación, privacidad RGPD</li>
+            <li>Requisitos FUNDAE para teleformación en Moodle: tutorización, seguimiento y certificación (art. 14 RD 694/2017)</li>
+            <li>EVA Universidad de Sevilla: particularidades, soporte y recursos institucionales</li>
           </ul>
         </div>
         <div class="sblock">
           <h4>Actividades</h4>
           <ul>
-            <li><strong>Acceso guiado al EVA-US:</strong> exploración de la plataforma institucional, roles y configuración de perfil</li>
-            <li><strong>Práctica Moodle demo:</strong> crear una sección temática con al menos 1 recurso (página), 1 tarea con rúbrica y 1 cuestionario de 5 preguntas mixtas en school.moodledemo.net</li>
-            <li><strong>Configuración de foro:</strong> crear un foro de debate con normas de participación para un curso de orientación laboral ficticio</li>
-            <li><strong>Peer review:</strong> intercambiar el cuestionario creado con un/a compañero/a y dar feedback con la rúbrica de calidad de actividades online</li>
+            <li><strong>Construcción de curso Moodle (3.1 + 1.3):</strong> en school.moodledemo.net, crear un curso sobre «Competencias digitales para la búsqueda de empleo» con 2 secciones, 1 recurso H5P, 1 tarea con rúbrica y 1 cuestionario de 8 preguntas mixtas — documentar cada decisión con el criterio FUNDAE que satisface</li>
+            <li><strong>Foro con netiqueta (2.4 + 2.5):</strong> configurar un foro de debate con normas de participación explícitas basadas en DigComp 2.5 — redactar las normas como documento incluible en cualquier curso de FPE</li>
+            <li><strong>Analítica del aprendizaje (1.3):</strong> activar el seguimiento de completado para una actividad, generar el informe de actividad y escribir un párrafo interpretativo: «¿Qué conclusiones sacaría un/a orientador/a sobre el progreso del grupo?»</li>
+            <li><strong>Selección de LMS (5.2):</strong> dado un caso (ONG con 50 usuarios, presupuesto cero, necesidad de certificados), aplicar una matriz de decisión 5.2 para recomendar entre Moodle, Google Classroom y Open edX con justificación de criterios</li>
           </ul>
         </div>
         <div class="sblock">
           <h4>Recursos y referencias</h4>
           <ul>
-            <li>Moodle HQ (2024). <em>Moodle documentation 4.4</em>. docs.moodle.org</li>
-            <li>Ros Martínez de Lahidalga, I. (2022). «Moodle, la plataforma para el aprendizaje». <em>Pixel-Bit</em>, 63</li>
-            <li>EVA Universidad de Sevilla: ev.us.es</li>
-            <li>Moodle demo: school.moodledemo.net</li>
-            <li>García-Peñalvo, F. J. y Seoane-Pardo, A. M. (2021). <em>LMS selection criteria</em>. GRIAL Group</li>
+            <li>Moodle HQ (2024). <em>Moodle documentation 4.5</em>. docs.moodle.org</li>
+            <li>FUNDAE (2024). <em>Requisitos técnicos para teleformación bonificada 2024</em>. fundae.es</li>
+            <li>García-Peñalvo, F. J. y Seoane-Pardo, A. M. (2021). «LMS selection criteria for online and blended learning». IGI Global</li>
+            <li>Open edX (2024). <em>Open edX Documentation</em>. openedx.org</li>
+            <li>Herramientas: school.moodledemo.net, ev.us.es, H5P.org</li>
           </ul>
         </div>
+      </div>
+      <div class="sesion-digcomp">
+        <span class="sdc-label">DigComp 3.0 →</span>
+        <span class="sdc-comp"><b>3.1</b> Desarrollo de contenidos digitales</span>
+        <span class="sdc-comp"><b>1.3</b> Gestión de datos e información digital</span>
+        <span class="sdc-comp"><b>2.4</b> Colaboración mediante tecnologías digitales</span>
+        <span class="sdc-comp"><b>5.1</b> Resolución de problemas técnicos</span>
+        <span class="sdc-comp"><b>5.2</b> Identificación de necesidades tecnológicas</span>
       </div>
     </div>
   </div>
@@ -1362,38 +1656,49 @@ footer .f-red { color: var(--us-rojo); }
       <div class="shoras">2 h</div>
     </div>
     <div class="sesion-body">
-      <div class="sesion-objetivos">Obj.: Crear objetos de aprendizaje digitales interactivos. Aplicar principios de gamificación al diseño de acciones formativas. Producir microcontenidos de vídeo para la formación online.</div>
+      <div class="sesion-objetivos">Obj.: Crear objetos de aprendizaje digitales interactivos con licencias correctas. Aplicar gamificación y storytelling al diseño de acciones de orientación. Producir microcontenidos accesibles para la formación online.</div>
       <div class="sesion-grid">
         <div class="sblock">
           <h4>Contenidos</h4>
           <ul>
-            <li>Herramientas de autor para e-learning: H5P, Genially, Articulate Rise, Adobe Captivate</li>
-            <li>Tipos de contenido interactivo: video interactivo, arrastrar y soltar, ramificación, presentación enriquecida</li>
-            <li>Producción de microcontenidos en vídeo: screencast (Loom, OBS Studio), cámara directa</li>
-            <li>Podcast y audio educativo: Audacity, Anchor/Spotify for Podcasters</li>
-            <li>Gamificación en formación: elementos clave (puntos, insignias, tablas de clasificación, narrativa)</li>
-            <li>Plataformas de gamificación: Kahoot!, Quizziz, Mentimeter, Wooclap, Classcraft</li>
-            <li>Infografías formativas: Canva, Piktochart, Visme</li>
+            <li>Herramientas de autor para e-learning: H5P, Genially, Articulate Rise, Adobe Captivate, iSpring</li>
+            <li>Tipos de contenido interactivo: video interactivo, arrastrar y soltar, ramificación, presentación enriquecida, escape room digital</li>
+            <li>Producción de microcontenidos en vídeo: screencast (Loom, OBS Studio), cámara directa, edición básica (Clipchamp, CapCut)</li>
+            <li>Accesibilidad en contenidos multimedia: subtítulos automáticos (YouTube, Kapwing), audiodescripción, transcripciones</li>
+            <li>Derechos de autor en la creación de contenidos educativos (3.3): licencias CC, dominio público y excepción educativa (LPI española)</li>
+            <li>Repositorios de recursos con licencia abierta: Unsplash, Pixabay, Freesound, Wikimedia Commons, ccMixter</li>
+            <li>Gamificación en formación: elementos clave (puntos, insignias, tablas, narrativa, progresión) y diseño de mecánicas</li>
+            <li>Storytelling digital para la formación: estructura narrativa emocional aplicada a materiales de orientación</li>
+            <li>Podcast y audio educativo: Audacity, Anchor/Spotify for Podcasters — guion, grabación y publicación</li>
           </ul>
         </div>
         <div class="sblock">
           <h4>Actividades</h4>
           <ul>
-            <li><strong>Taller H5P:</strong> crear un «Video interactivo» de 3 minutos sobre una competencia clave para el empleo, con al menos 3 preguntas embebidas y retroalimentación personalizada</li>
-            <li><strong>Microcontenido con Loom:</strong> grabar un tutorial de 2 minutos explicando cómo usar un recurso digital de orientación (ej: cómo activar alertas de empleo en SEPE)</li>
-            <li><strong>Diseño gamificado:</strong> proponer un itinerario gamificado de 4 semanas para un usuario tipo en búsqueda activa de empleo (mecánicas, recompensas, progresión)</li>
-            <li><strong>Infografía:</strong> crear una infografía en Canva sobre «Las 5 competencias digitales más demandadas en 2025» con datos de fuentes oficiales</li>
+            <li><strong>H5P Video interactivo (3.1):</strong> crear un vídeo interactivo de 3 minutos sobre una competencia DigComp 3.0 (a elección del estudiante), con al menos 3 preguntas embebidas, retroalimentación personalizada y subtítulos — el vídeo incluirá una diapositiva de créditos con licencias de todos los recursos usados</li>
+            <li><strong>Auditoría de licencias (3.3):</strong> dado un conjunto de 10 recursos digitales de fuentes diversas, clasificarlos por licencia (CC BY, CC BY-SA, CC BY-NC, todos los derechos reservados, dominio público) y determinar cuáles pueden incorporarse a un material formativo para el SEPE sin infringir derechos</li>
+            <li><strong>Diseño gamificado (5.3):</strong> diseñar un itinerario gamificado de 4 semanas para un usuario en búsqueda de empleo: mecánicas, recompensas, progresión y narrativa — justificando cada decisión de diseño con terminología de gamificación y los objetivos de orientación</li>
+            <li><strong>Microcontenido Loom (3.1):</strong> grabar un tutorial accesible de 2 minutos sobre un recurso digital de orientación, con subtítulos automáticos revisados manualmente y transcripción adjunta</li>
           </ul>
         </div>
         <div class="sblock">
           <h4>Recursos y referencias</h4>
           <ul>
             <li>Dicheva, D. et al. (2021). «Gamification in education: a systematic mapping study». <em>Educational Technology &amp; Society</em>, 24(1)</li>
+            <li>Creative Commons (2024). <em>Licencias CC: guía para educadores</em>. creativecommons.org</li>
             <li>H5P.org (2024). <em>H5P Content Types</em>. h5p.org</li>
-            <li>Loom (2024). loom.com — versión gratuita</li>
-            <li>Canva Edu (2024). canva.com/education</li>
+            <li>Canva Edu (2024). canva.com/education · Loom (free): loom.com</li>
+            <li>Johnson, L. et al. (2024). «AR and VR in vocational training: systematic review 2020–2024». <em>Journal of Vocational Education &amp; Training</em></li>
           </ul>
         </div>
+      </div>
+      <div class="sesion-digcomp">
+        <span class="sdc-label">DigComp 3.0 →</span>
+        <span class="sdc-comp"><b>3.1</b> Desarrollo de contenidos digitales</span>
+        <span class="sdc-comp"><b>3.2</b> Integración y reelaboración</span>
+        <span class="sdc-comp"><b>3.3</b> Derechos de autor y licencias</span>
+        <span class="sdc-comp"><b>5.3</b> Uso creativo e innovador</span>
+        <span class="sdc-comp"><b>3.4</b> Programación y pensamiento computacional</span>
       </div>
     </div>
   </div>
@@ -1407,40 +1712,50 @@ footer .f-red { color: var(--us-rojo); }
       <div class="shoras">2 h</div>
     </div>
     <div class="sesion-body">
-      <div class="sesion-objetivos">Obj.: Identificar las principales ciberamenazas en entornos laborales. Implementar medidas de seguridad básica. Desarrollar criterios para orientar a usuarios sobre seguridad digital.</div>
+      <div class="sesion-objetivos">Obj.: Identificar y analizar las principales ciberamenazas en entornos laborales de orientación y formación. Implementar medidas de protección de dispositivos, contraseñas e identidades. Desarrollar capacidad crítica ante deepfakes y desinformación digital.</div>
       <div class="sesion-grid">
         <div class="sblock">
           <h4>Contenidos</h4>
           <ul>
-            <li>Panorama de ciberamenazas en España 2024: informe INCIBE</li>
-            <li>Principales ataques: phishing, spear-phishing, vishing, smishing</li>
-            <li>Malware: ransomware, spyware, troyanos, keyloggers</li>
-            <li>Ingeniería social: técnicas de manipulación y casos reales en RRHH</li>
-            <li>Gestión de contraseñas: criterios de fortaleza, gestores (Bitwarden, 1Password, KeePass)</li>
-            <li>Autenticación multifactor (MFA/2FA): tipos y configuración</li>
-            <li>Seguridad en Wi-Fi: riesgos de redes públicas y uso de VPN</li>
-            <li>Estrategia de copias de seguridad 3-2-1 en entornos profesionales</li>
-            <li>Actualizaciones y parcheado de sistemas: política de empresa</li>
+            <li>Panorama de ciberamenazas en España 2024: informe INCIBE — principales vectores de ataque a PYMES y entidades públicas</li>
+            <li>Ataques de ingeniería social: phishing, spear-phishing, vishing, smishing — anatomía y señales de alerta</li>
+            <li>Malware: ransomware, spyware, troyanos, keyloggers, rootkits — ciclo de vida de un ataque</li>
+            <li>Amenazas específicas a servicios de orientación: acceso no autorizado a expedientes, exfiltración de datos de usuarios</li>
+            <li>Deepfakes y desinformación digital: detección, implicaciones en videoentrevistas y verificación de candidatos</li>
+            <li>Gestión de contraseñas: criterios de fortaleza, gestores (Bitwarden, 1Password, KeePass), política de rotación</li>
+            <li>Autenticación multifactor (MFA/2FA): tipos (TOTP, FIDO2, biometría) y configuración en servicios profesionales</li>
+            <li>Seguridad en Wi-Fi: riesgos de redes públicas, ataques MITM y uso de VPN en teletrabajo</li>
+            <li>Estrategia de copias de seguridad 3-2-1 y gestión de incidentes en entornos profesionales</li>
+            <li>Seguridad en dispositivos móviles BYOD: políticas MDM, cifrado de dispositivos y apps no autorizadas</li>
           </ul>
         </div>
         <div class="sblock">
           <h4>Actividades</h4>
           <ul>
-            <li><strong>Simulacro phishing:</strong> analizar 10 correos electrónicos reales (anonimizados) e identificar indicadores de phishing — comparación de resultados en grupo</li>
-            <li><strong>Auditoría de contraseñas:</strong> verificar correos propios en haveibeenpwned.com y reflexionar sobre hábitos de seguridad</li>
-            <li><strong>Práctica Bitwarden:</strong> instalar y configurar gestor de contraseñas gratuito, importar 5 contraseñas y activar 2FA en una cuenta de trabajo</li>
-            <li><strong>Caso de empresa:</strong> análisis del ciberataque al SEPE (2021) — ¿cómo afectó a los servicios de orientación? ¿qué lecciones se pueden extraer?</li>
+            <li><strong>Simulacro phishing (4.1 + 4.2):</strong> analizar 10 correos/SMS reales anonimizados completando una tarjeta de análisis DigComp 4.1/4.2 por cada amenaza (vector, dato objetivo, indicador técnico, acción correcta) — comparación de resultados en grupo con marcador en Mentimeter</li>
+            <li><strong>Auditoría HaveIBeenPwned + Bitwarden (4.1):</strong> verificar correos propios en haveibeenpwned.com, instalar Bitwarden, importar 5 contraseñas y activar 2FA en una cuenta real — reflexión sobre hábitos previos de seguridad</li>
+            <li><strong>Detección de deepfake (1.2):</strong> con herramientas gratuitas (Hive Moderation, FotoForensics), analizar 3 imágenes y 1 clip de vídeo para determinar su autenticidad — debate sobre implicaciones en videoentrevistas y verificación de candidatos</li>
+            <li><strong>Análisis caso SEPE 2021 (5.1):</strong> reconstruir la cronología del ciberataque de ransomware al SEPE: vector de entrada, propagación, impacto en servicios de orientación, medidas adoptadas y lecciones aplicables a una entidad similar</li>
           </ul>
         </div>
         <div class="sblock">
           <h4>Recursos y referencias</h4>
           <ul>
             <li>INCIBE (2024). <em>Balance de Ciberseguridad 2024</em>. incibe.es</li>
-            <li>ENS (2024). <em>Informe del Estado de la Ciberseguridad en el Sector Público</em>. ccn-cert.cni.es</li>
+            <li>INCIBE (2024). <em>Kit de concienciación en ciberseguridad para empresas</em>. incibe.es</li>
             <li>ENISA (2024). <em>Threat Landscape 2024</em>. enisa.europa.eu</li>
-            <li>HaveIBeenPwned.com · Bitwarden.com (gratuito)</li>
+            <li>CCN-CERT (2024). <em>Informe de Ciberseguridad en el Sector Público</em>. ccn-cert.cni.es</li>
+            <li>Herramientas: HaveIBeenPwned.com, Bitwarden (free), Hive Moderation, FotoForensics</li>
           </ul>
         </div>
+      </div>
+      <div class="sesion-digcomp">
+        <span class="sdc-label">DigComp 3.0 →</span>
+        <span class="sdc-comp"><b>4.1</b> Protección de dispositivos</span>
+        <span class="sdc-comp"><b>4.2</b> Protección de datos personales</span>
+        <span class="sdc-comp"><b>1.2</b> Evaluación crítica de información (deepfakes)</span>
+        <span class="sdc-comp"><b>5.1</b> Resolución de problemas técnicos</span>
+        <span class="sdc-comp"><b>4.3</b> Protección de la salud y bienestar</span>
       </div>
     </div>
   </div>
@@ -1454,40 +1769,49 @@ footer .f-red { color: var(--us-rojo); }
       <div class="shoras">2 h</div>
     </div>
     <div class="sesion-body">
-      <div class="sesion-objetivos">Obj.: Conocer el marco normativo de protección de datos aplicable a los servicios de orientación y formación. Elaborar documentación básica de cumplimiento RGPD. Identificar los derechos de los usuarios y las obligaciones del responsable del tratamiento.</div>
+      <div class="sesion-objetivos">Obj.: Dominar el marco normativo RGPD/LOPDGDD aplicado a servicios de orientación y formación. Elaborar documentación básica de cumplimiento. Analizar las implicaciones del AI Act para el tratamiento de datos con IA en servicios de empleo.</div>
       <div class="sesion-grid">
         <div class="sblock">
           <h4>Contenidos</h4>
           <ul>
-            <li>RGPD (Reglamento UE 2016/679): principios, ámbito de aplicación y bases legales del tratamiento</li>
-            <li>LOPDGDD (LO 3/2018): adaptación española y novedades</li>
-            <li>Derechos ARSCOP: acceso, rectificación, supresión, limitación, oposición y portabilidad</li>
-            <li>Datos de categorías especiales en orientación laboral: origen étnico, salud, discapacidad</li>
-            <li>Consentimiento informado: requisitos, formularios y registro</li>
-            <li>Registro de Actividades de Tratamiento (RAT): qué es y cómo elaborarlo</li>
-            <li>Evaluación de Impacto (EIPD/DPIA): cuándo es obligatoria</li>
-            <li>Brechas de seguridad: plazos y procedimiento de notificación a la AEPD</li>
-            <li>Delegado de Protección de Datos (DPD): funciones y cuándo es obligatorio</li>
+            <li>RGPD (Reglamento UE 2016/679): principios, ámbito de aplicación y 6 bases legales del tratamiento</li>
+            <li>LOPDGDD (LO 3/2018): adaptación española, derechos digitales y novedades en el entorno laboral</li>
+            <li>Derechos ARSCOPLIM: acceso, rectificación, supresión, limitación, oposición, portabilidad y no ser objeto de decisiones automatizadas</li>
+            <li>Datos de categorías especiales en orientación: origen étnico, salud, discapacidad, situación migratoria — tratamiento y bases legitimadoras</li>
+            <li>Consentimiento informado: requisitos de validez, formularios, registro y revocación</li>
+            <li>Registro de Actividades de Tratamiento (RAT): estructura, obligados y cómo elaborarlo para un servicio de orientación</li>
+            <li>Evaluación de Impacto en Protección de Datos (EIPD/DPIA): cuándo es obligatoria y metodología AEPD</li>
+            <li>Brechas de seguridad: detección, plazos de notificación (72h a AEPD), comunicación al afectado y documentación</li>
+            <li>Delegado de Protección de Datos (DPD): funciones, cuándo es obligatorio y cómo designarlo</li>
+            <li>AI Act (Reglamento UE 2024/1689): clasificación de riesgos, implicaciones para sistemas de IA en selección de personal y orientación</li>
           </ul>
         </div>
         <div class="sblock">
           <h4>Actividades</h4>
           <ul>
-            <li><strong>Análisis de política de privacidad:</strong> revisar la política de privacidad de un servicio real de orientación (ej: portal de empleo de la Junta de Andalucía) — ¿cumple el RGPD?</li>
-            <li><strong>Elaboración de consentimiento:</strong> redactar un formulario de consentimiento informado RGPD-compliant para la recogida de datos en una entrevista de orientación inicial</li>
-            <li><strong>Caso práctico grupal:</strong> «La orientadora envía un fichero con datos de 50 usuarios por WhatsApp a su jefa» — identificar la brecha, calcular el plazo, redactar la notificación a la AEPD</li>
-            <li><strong>Quiz RGPD:</strong> 15 preguntas sobre la normativa usando Quizziz en tiempo real</li>
+            <li><strong>Auditoría de política de privacidad (4.2 + 2.3):</strong> revisar la política de privacidad del portal de empleo del SAE (Andalucía) con un checklist de 15 puntos basado en RGPD — identificar conformidades e incumplimientos, calificar cada hallazgo con el artículo RGPD correspondiente y el indicador DigComp 4.2</li>
+            <li><strong>Elaboración de RAT (1.3 + 4.2):</strong> crear el Registro de Actividades de Tratamiento simplificado para un servicio de orientación tipo — datos recogidos, finalidad, base legal, destinatarios, plazo de conservación, medidas de seguridad</li>
+            <li><strong>Caso de brecha (4.2):</strong> «La orientadora envía un fichero Excel con datos de 50 usuarios por WhatsApp» — identificar la brecha, calcular el plazo de notificación, redactar la notificación a la AEPD usando la plantilla oficial y analizar la sanción potencial</li>
+            <li><strong>Análisis AI Act aplicado (2.3):</strong> identificar qué sistemas de IA utilizados en orientación serían clasificados como «alto riesgo» según el AI Act — elaborar un cuadro de clasificación con los artículos relevantes y las obligaciones de transparencia ante el usuario</li>
           </ul>
         </div>
         <div class="sblock">
           <h4>Recursos y referencias</h4>
           <ul>
             <li>AEPD (2024). <em>Guía práctica de análisis de riesgos en tratamientos de datos personales</em>. aepd.es</li>
-            <li>AEPD (2023). <em>Guía de protección de datos desde el diseño y por defecto</em>. aepd.es</li>
+            <li>AEPD (2024). <em>IA y protección de datos: guía para entidades</em>. aepd.es</li>
+            <li>Comisión Europea (2024). <em>AI Act — Reglamento UE 2024/1689</em>. EUR-Lex</li>
             <li>Reglamento (UE) 2016/679 — texto consolidado 2024. EUR-Lex</li>
-            <li>Ley Orgánica 3/2018, de 5 de diciembre (LOPDGDD). BOE</li>
+            <li>Herramientas: Plantilla RAT AEPD, Quizziz, Plantilla notificación brecha AEPD</li>
           </ul>
         </div>
+      </div>
+      <div class="sesion-digcomp">
+        <span class="sdc-label">DigComp 3.0 →</span>
+        <span class="sdc-comp"><b>4.2</b> Protección de datos personales e intimidad</span>
+        <span class="sdc-comp"><b>2.3</b> Participación ciudadana digital</span>
+        <span class="sdc-comp"><b>1.3</b> Gestión de datos e información digital</span>
+        <span class="sdc-comp"><b>2.6</b> Gestión de la identidad digital</span>
       </div>
     </div>
   </div>
@@ -1501,38 +1825,49 @@ footer .f-red { color: var(--us-rojo); }
       <div class="shoras">2 h</div>
     </div>
     <div class="sesion-body">
-      <div class="sesion-objetivos">Obj.: Aplicar buenas prácticas de seguridad en la comunicación profesional digital. Establecer protocolos de seguridad para el manejo de información sensible de usuarios de orientación.</div>
+      <div class="sesion-objetivos">Obj.: Aplicar buenas prácticas de seguridad en todos los canales de comunicación digital profesional. Establecer protocolos RGPD-compliant para el manejo de información sensible. Comprender el modelo Zero Trust y su aplicación en servicios de orientación.</div>
       <div class="sesion-grid">
         <div class="sblock">
           <h4>Contenidos</h4>
           <ul>
-            <li>Correo electrónico seguro: cifrado S/MIME, firma digital y verificación de remitentes</li>
-            <li>Mensajería instantánea profesional: WhatsApp Business vs. Teams/Slack — análisis de riesgos RGPD</li>
-            <li>Videoconferencia segura: configuración de privacidad en Zoom, Teams y Meet</li>
-            <li>Gestión documental segura: cifrado de documentos, control de acceso y permisos en Drive</li>
-            <li>Política de uso aceptable de TIC en la empresa: contenidos mínimos</li>
-            <li>Redes sociales corporativas: riesgos, política de uso y responsabilidad del empleado</li>
-            <li>Trabajo remoto seguro: VPN corporativa, dispositivos propios (BYOD) y escritorio remoto</li>
+            <li>Correo electrónico seguro: cifrado TLS/S/MIME, firma digital, SPF/DKIM/DMARC y verificación de remitentes</li>
+            <li>Mensajería instantánea profesional: WhatsApp Business vs. Teams/Slack/Signal — análisis comparativo de riesgos RGPD</li>
+            <li>Videoconferencia segura: sala de espera, contraseñas, grabación y consentimiento, cifrado E2E</li>
+            <li>Gestión documental segura: cifrado de documentos, marcas de agua digitales, control de acceso y permisos en Drive/SharePoint</li>
+            <li>Política BYOD (Bring Your Own Device): riesgos, controles MDM y alternativas (COPE, CYOD)</li>
+            <li>Modelo Zero Trust («nunca confíes, siempre verifica»): principios y aplicación práctica en entidades de orientación</li>
+            <li>Trabajo remoto seguro: VPN corporativa, escritorio remoto (RDP, TeamViewer) y riesgos asociados</li>
+            <li>Redes sociales corporativas: riesgos de reputación, política de uso y responsabilidad del empleado</li>
+            <li>Comunicación con usuarios vulnerables: protocolos específicos para datos sensibles de desempleados, personas con discapacidad o víctimas de violencia de género</li>
           </ul>
         </div>
         <div class="sblock">
           <h4>Actividades</h4>
           <ul>
-            <li><strong>Auditoría de privacidad:</strong> revisar y configurar las opciones de privacidad del correo institucional @us.es (filtros anti-spam, firma digital, reglas automáticas)</li>
-            <li><strong>Debate con evidencias:</strong> «¿Es legal usar WhatsApp para comunicarse con usuarios de un servicio de orientación?» — análisis de la Guía AEPD sobre mensajería instantánea</li>
-            <li><strong>Redacción de protocolo:</strong> elaborar una «Política de comunicación digital segura» de 2 páginas para un servicio de orientación para el empleo (entidad sin ánimo de lucro)</li>
-            <li><strong>Configuración de videoconferencia:</strong> revisión de 10 ajustes de privacidad en Google Meet y Microsoft Teams</li>
+            <li><strong>Comparativa de canales (2.1 + 4.2):</strong> evaluar correo institucional, Teams, Signal y WhatsApp Business contra una matriz de criterios (cifrado, metadatos, RGPD, política institucional, accesibilidad) — producir una tabla de decisión con recomendación justificada para cada tipo de comunicación en orientación</li>
+            <li><strong>Auditoría de correo @us.es (4.1):</strong> revisar y configurar al menos 8 ajustes de seguridad del correo institucional (filtro anti-spam, reglas, firma digital, 2FA, reenvío externo) usando la guía CCN-STIC 822</li>
+            <li><strong>Análisis de netiqueta en comunicaciones (2.5):</strong> revisar 2 hilos de correo profesional reales (anonimizados) e identificar fallos de netiqueta, riesgos de privacidad y violaciones de protocolo — proponer versión corregida</li>
+            <li><strong>Política de comunicación digital (4.1 + 4.2):</strong> redactar una «Política de comunicación digital segura» de 2 páginas para una ONG de orientación: qué canales usar para cada tipo de comunicación, normas de uso de WhatsApp, videoconferencia y redes sociales</li>
           </ul>
         </div>
         <div class="sblock">
           <h4>Recursos y referencias</h4>
           <ul>
-            <li>INCIBE (2023). <em>Protección de la información en la empresa: comunicaciones seguras</em>. incibe.es</li>
+            <li>CCN-CERT (2024). <em>Guía CCN-STIC 822: Seguridad en correo electrónico</em>. ccn-cert.cni.es</li>
             <li>AEPD (2022). <em>Guía sobre el uso de comunicaciones electrónicas en el trabajo</em>. aepd.es</li>
-            <li>CCN-CERT (2024). <em>Guía de seguridad en teletrabajo</em>. ccn-cert.cni.es</li>
+            <li>NIST (2020). <em>Zero Trust Architecture — NIST SP 800-207</em>. nist.gov</li>
+            <li>INCIBE (2024). <em>Teletrabajo seguro: buenas prácticas para empresas</em>. incibe.es</li>
             <li>Política de uso aceptable de TIC — Universidad de Sevilla (2023)</li>
           </ul>
         </div>
+      </div>
+      <div class="sesion-digcomp">
+        <span class="sdc-label">DigComp 3.0 →</span>
+        <span class="sdc-comp"><b>2.1</b> Interacción mediante tecnologías digitales</span>
+        <span class="sdc-comp"><b>4.1</b> Protección de dispositivos</span>
+        <span class="sdc-comp"><b>4.2</b> Protección de datos personales</span>
+        <span class="sdc-comp"><b>2.5</b> Comportamiento en la red</span>
+        <span class="sdc-comp"><b>2.2</b> Intercambio mediante tecnologías digitales</span>
       </div>
     </div>
   </div>
@@ -1546,28 +1881,30 @@ footer .f-red { color: var(--us-rojo); }
       <div class="shoras">2 h</div>
     </div>
     <div class="sesion-body">
-      <div class="sesion-objetivos">Obj.: Analizar el impacto real de la IA y la automatización en el mercado laboral. Identificar los perfiles profesionales más y menos vulnerables. Aplicar herramientas de IA generativa en tareas de orientación.</div>
+      <div class="sesion-objetivos">Obj.: Analizar el impacto real de la IA y la automatización en el mercado laboral con evidencia empírica. Aplicar prompt engineering y herramientas de IA generativa en tareas de orientación. Evaluar críticamente los outputs de IA con criterios DigComp 1.2.</div>
       <div class="sesion-grid">
         <div class="sblock">
           <h4>Contenidos</h4>
           <ul>
-            <li>IA: conceptos básicos — machine learning, deep learning, IA generativa</li>
-            <li>IA generativa: ChatGPT (GPT-4o), Microsoft Copilot, Google Gemini, Claude — capacidades y límites</li>
-            <li>Automatización de tareas cognitivas: RPA (Robotic Process Automation) y chatbots en RRHH</li>
-            <li>Impacto en el empleo: marcos Frey-Osborne (2013), Acemoglu (2022), WEF (2025)</li>
-            <li>Perfiles profesionales emergentes: prompt engineer, AI trainer, analista de datos, etc.</li>
-            <li>Sesgos algorítmicos en selección de personal: casos Amazon, LinkedIn</li>
-            <li>Ética de la IA: Reglamento de IA de la UE (AI Act 2024) y sus implicaciones laborales</li>
-            <li>IA aplicada a la orientación: generación de informes, análisis de CV, chatbots de orientación</li>
+            <li>IA: conceptos básicos — machine learning, deep learning, IA generativa, modelos multimodales</li>
+            <li>Modelos de lenguaje (LLMs): GPT-4o, Gemini 1.5, Claude 3.5, LLaMA — arquitectura básica, capacidades y alucinaciones</li>
+            <li>IA generativa en la práctica: ChatGPT, Microsoft Copilot, Google Gemini — casos de uso en orientación laboral</li>
+            <li>Prompt engineering para orientación: técnicas básicas (zero-shot, few-shot, chain-of-thought, role prompting)</li>
+            <li>Automatización: RPA (Robotic Process Automation), chatbots de orientación (Yoobic, CoachBot) y agentes autónomos</li>
+            <li>Impacto en el empleo: marcos Frey-Osborne (2013), Acemoglu (2022/2024), WEF (2025) — análisis comparativo</li>
+            <li>Perfiles profesionales emergentes en 2025-2030: según WEF, CEDEFOP y OCDE</li>
+            <li>Sesgos algorítmicos en selección: casos Amazon (2018), Gender Shades (MIT), LinkedIn</li>
+            <li>Ética de la IA: AI Act 2024, transparencia algorítmica y derechos de los trabajadores ante sistemas automatizados</li>
+            <li>IA y alfabetización digital: OECD AI Framework y competencias básicas para trabajar con IA (AI Literacy)</li>
           </ul>
         </div>
         <div class="sblock">
           <h4>Actividades</h4>
           <ul>
-            <li><strong>Taller IA generativa:</strong> usar ChatGPT o Copilot para generar un «informe de perfil competencial» a partir de un CV ficticio — evaluar calidad, sesgos y limitaciones</li>
-            <li><strong>Análisis de vulnerabilidad:</strong> cada estudiante evalúa su propio perfil profesional en willrobotstakemyjob.com y debate los resultados en grupo</li>
-            <li><strong>Caso de sesgos:</strong> análisis del caso del sistema de contratación automatizada de Amazon (2018) y reflexión sobre qué salvaguardas establece el AI Act de la UE</li>
-            <li><strong>Debate estructurado:</strong> «La IA como aliada o amenaza para el orientador/a laboral» — argumentos pro y contra con evidencias</li>
+            <li><strong>Prompt engineering para orientación (5.3):</strong> diseñar y probar 5 prompts específicos para tareas reales (análisis de perfil competencial, carta de presentación adaptada, plan de acción personalizado, diagnóstico de barreras de empleabilidad, resumen de entrevista) — evaluar los outputs con la rúbrica DigComp 1.2 adaptada a IA (veracidad, coherencia, sesgo, citación)</li>
+            <li><strong>Análisis de vulnerabilidad al empleo (5.4):</strong> cada estudiante evalúa su perfil en willrobotstakemyjob.com y lo contrasta con datos CEDEFOP/OCDE sobre su sector — debate sobre qué competencias DigComp 3.0 son más protectoras frente a la automatización</li>
+            <li><strong>Caso de sesgo algorítmico (1.2 + 2.3):</strong> reconstruir el caso Amazon 2018 y reflexionar sobre qué salvaguardas establece el AI Act para los sistemas de IA usados en selección de personal — ¿qué derechos tiene un candidato en España?</li>
+            <li><strong>Simulación chatbot de orientación (5.3):</strong> usar ChatGPT con un system prompt personalizado para simular una entrevista de orientación inicial — identificar en grupos los 5 mayores aciertos y los 3 mayores riesgos éticos</li>
           </ul>
         </div>
         <div class="sblock">
@@ -1575,11 +1912,19 @@ footer .f-red { color: var(--us-rojo); }
           <ul>
             <li>WEF (2025). <em>Future of Jobs Report 2025</em>. weforum.org</li>
             <li>Acemoglu, D. (2024). «The simple macroeconomics of AI». <em>NBER Working Paper</em>, 32487</li>
-            <li>Comisión Europea (2024). <em>Reglamento de Inteligencia Artificial (AI Act)</em>. EUR-Lex 2024/1689</li>
-            <li>Pew Research Center (2023). <em>AI in the Workplace</em>. pewresearch.org</li>
-            <li>Herramientas: ChatGPT, Microsoft Copilot, willrobotstakemyjob.com</li>
+            <li>White, J. et al. (2023). «A Prompt Pattern Catalog to Enhance Prompt Engineering with ChatGPT». arXiv:2302.11382</li>
+            <li>Comisión Europea (2024). <em>AI Act — Reglamento UE 2024/1689</em>. EUR-Lex</li>
+            <li>Herramientas: ChatGPT, Microsoft Copilot, Google Gemini, willrobotstakemyjob.com</li>
           </ul>
         </div>
+      </div>
+      <div class="sesion-digcomp">
+        <span class="sdc-label">DigComp 3.0 →</span>
+        <span class="sdc-comp"><b>5.3</b> Uso creativo e innovador de tecnologías digitales</span>
+        <span class="sdc-comp"><b>5.4</b> Identificación de lagunas competenciales</span>
+        <span class="sdc-comp"><b>1.2</b> Evaluación de contenido generado por IA</span>
+        <span class="sdc-comp"><b>2.3</b> Participación ciudadana digital</span>
+        <span class="sdc-comp"><b>3.4</b> Programación y pensamiento computacional (IA)</span>
       </div>
     </div>
   </div>
@@ -1593,39 +1938,49 @@ footer .f-red { color: var(--us-rojo); }
       <div class="shoras">2 h</div>
     </div>
     <div class="sesion-body">
-      <div class="sesion-objetivos">Obj.: Comprender el impacto del big data y la economía de plataformas en el mercado laboral. Analizar las implicaciones del teletrabajo para la orientación. Identificar las competencias digitales del orientador/a del futuro.</div>
+      <div class="sesion-objetivos">Obj.: Analizar el impacto del big data y la economía de plataformas en el mercado laboral. Visualizar datos abiertos de empleo para la orientación. Realizar la autoevaluación final DigComp 3.0 y diseñar el plan de desarrollo personal en competencia digital.</div>
       <div class="sesion-grid">
         <div class="sblock">
           <h4>Contenidos</h4>
           <ul>
-            <li>Big Data: concepto, las 5 V's y aplicaciones en RRHH y políticas de empleo</li>
-            <li>People Analytics: toma de decisiones basada en datos en gestión de personas</li>
-            <li>Open Data y datos abiertos de empleo: SEPE, Eurostat, OCDE</li>
-            <li>Economía de plataformas (gig economy): Uber, Glovo, Fiverr, Upwork — modelo laboral y riesgos</li>
-            <li>Marco legal del trabajo en plataformas: Ley Rider (RDL 9/2021) y sentencias relevantes</li>
-            <li>Teletrabajo y trabajo híbrido: RDL 28/2020, impacto en orientación y formación</li>
-            <li>DigComp 2.2: las 5 áreas de competencia digital y su evaluación</li>
-            <li>El orientador/a digital del futuro: perfil, competencias y desarrollo profesional continuo</li>
+            <li>Big Data: concepto, las 5 V's (volumen, velocidad, variedad, veracidad, valor) y aplicaciones en RRHH</li>
+            <li>People Analytics: toma de decisiones basada en datos — herramientas accesibles (Power BI, Google Looker Studio, Datawrapper)</li>
+            <li>Open Data de empleo: SEPE, Eurostat, OCDE, INE-EPA — cómo acceder, filtrar y visualizar</li>
+            <li>Economía de plataformas (gig economy): Uber, Glovo, Fiverr, Upwork — modelo laboral, riesgos y derechos</li>
+            <li>Marco legal del trabajo en plataformas en España: Ley Rider (RDL 9/2021), presunción de laboralidad y sentencias TJUE</li>
+            <li>Teletrabajo y trabajo híbrido: RDL 28/2020, gestión de la presencialidad y riesgos psicosociales</li>
+            <li>Competencias digitales para el futuro: WEF 2025 — las 10 habilidades más demandadas en 2030</li>
+            <li>El orientador/a digital del futuro: perfil T-shaped, competencias DigComp 3.0 y plan de desarrollo continuo</li>
+            <li>Metodología IDP (Individual Development Plan) con base DigComp 3.0: estructura, indicadores y recursos</li>
           </ul>
         </div>
         <div class="sblock">
           <h4>Actividades</h4>
           <ul>
-            <li><strong>Análisis de datos abiertos:</strong> explorar el portal de datos del SEPE para identificar tendencias de empleo en Andalucía en 2024-2025 — elaborar 3 conclusiones para un servicio de orientación</li>
-            <li><strong>Debate con casos:</strong> «¿Qué derechos laborales tienen los trabajadores de plataformas?» — análisis de la Ley Rider y sentencias del TJUE</li>
-            <li><strong>Mapa de competencias:</strong> autoevaluar las propias competencias digitales con el marco DigComp 2.2 y diseñar un plan de desarrollo personal en TIC (1 página)</li>
-            <li><strong>Prospectiva grupal:</strong> «El servicio de orientación laboral en 2030» — diseño colaborativo de un escenario futuro con tecnologías emergentes</li>
+            <li><strong>Visualización de datos abiertos (1.2 + 5.2):</strong> acceder al portal de datos del SEPE o INE-EPA, filtrar por sector y comunidad autónoma, crear un gráfico de tendencias en Datawrapper y redactar un párrafo interpretativo para incluir en un boletín de orientación laboral</li>
+            <li><strong>Análisis de plataformas y derechos (2.3 + 4.2):</strong> revisar las Condiciones de Servicio de Glovo o Fiverr, extraer las cláusulas sobre datos personales y gestión algorítmica, mapear cada cláusula a los derechos ARSCOPLIM del RGPD y los indicadores DigComp 4.2 y 2.3</li>
+            <li><strong>Autoevaluación DigComp 3.0 final (5.4):</strong> repetir el cuestionario DigComp-Sat del JRC (ya realizado en S01), comparar perfiles inicial/final, identificar las 3 competencias con mayor progreso (con evidencias de actividades concretas) y las 2 que requieren mayor desarrollo — base del IDP</li>
+            <li><strong>IDP de competencia digital (5.4):</strong> elaborar un Plan de Desarrollo Personal en competencia digital de 2 páginas: 3 objetivos DigComp 3.0 priorizados, acciones concretas por objetivo, recursos (MOOCs, certificaciones, práctica laboral) y cronograma de 12 meses</li>
           </ul>
         </div>
         <div class="sblock">
           <h4>Recursos y referencias</h4>
           <ul>
-            <li>Vuorikari, R. et al. (2022). <em>DigComp 2.2: The Digital Competence Framework</em>. Publications Office EU. doi:10.2760/115376</li>
-            <li>De Stefano, V. (2021). «Automation, artificial intelligence and labour protection». <em>Cambridge Handbook of Labour in Competition Law</em></li>
-            <li>OCDE (2023). <em>OECD Employment Outlook 2023: AI and the Labour Market</em></li>
-            <li>SEPE (2025). <em>Datos abiertos del mercado de trabajo</em>. sepe.es/opendata</li>
+            <li>Vuorikari, R. et al. (2025). <em>DigComp 3.0: The Digital Competence Framework for Citizens</em>. Publications Office of the EU</li>
+            <li>WEF (2025). <em>Future of Jobs Report 2025</em>. weforum.org</li>
+            <li>INE (2025). <em>Encuesta de Población Activa</em>. ine.es</li>
+            <li>De Stefano, V. y Wouters, M. (2021). «Platform work and the employment relationship». ILO Working Paper, 27</li>
+            <li>Herramientas: Datawrapper (free), SEPE Open Data, JRC DigComp-Sat, Google Looker Studio</li>
           </ul>
         </div>
+      </div>
+      <div class="sesion-digcomp">
+        <span class="sdc-label">DigComp 3.0 →</span>
+        <span class="sdc-comp"><b>5.4</b> Identificación de lagunas competenciales (autoevaluación final)</span>
+        <span class="sdc-comp"><b>1.2</b> Evaluación de datos</span>
+        <span class="sdc-comp"><b>2.3</b> Participación ciudadana digital</span>
+        <span class="sdc-comp"><b>4.2</b> Protección de datos personales</span>
+        <span class="sdc-comp"><b>5.2</b> Identificación de necesidades tecnológicas</span>
       </div>
     </div>
   </div>
@@ -1639,39 +1994,65 @@ footer .f-red { color: var(--us-rojo); }
       <div class="shoras">2 h</div>
     </div>
     <div class="sesion-body">
-      <div class="sesion-objetivos">Obj.: Presentar y defender el proyecto final de forma oral con soporte digital. Integrar y consolidar los aprendizajes del curso. Evaluar entre iguales con rúbrica. Reflexionar sobre el propio proceso de aprendizaje.</div>
+      <div class="sesion-objetivos">Obj.: Presentar y defender el proyecto final de forma oral con soporte digital integrando competencias adquiridas a lo largo del curso. Demostrar nivel DigComp 3.0 alcanzado mediante evidencias concretas en el portfolio. Evaluar entre iguales con rúbrica estructurada. Reflexionar críticamente sobre el propio itinerario de aprendizaje y elaborar un Plan de Desarrollo Digital (PDD) individual para los próximos 12 meses.</div>
       <div class="sesion-grid">
         <div class="sblock">
           <h4>Dinámica de la sesión</h4>
           <ul>
-            <li>Presentaciones orales de proyectos finales: 3-4 grupos × 15 min (10 presentación + 5 preguntas)</li>
-            <li>Exposición con soporte digital obligatorio (presentación interactiva, vídeo demostrativo, prototipo funcional)</li>
-            <li>Coevaluación entre pares: rúbrica digital de 4 criterios (contenido, tecnología, presentación, originalidad)</li>
-            <li>Feedback constructivo del docente a cada grupo</li>
-            <li>Reflexión individual: «3 aprendizajes, 2 retos superados, 1 siguiente paso» (Google Forms)</li>
-            <li>Encuesta de satisfacción docente (Mentimeter)</li>
-            <li>Presentación de recursos para el desarrollo profesional continuo en TIC</li>
+            <li>Presentaciones orales de proyectos finales: 3-4 grupos × 15 min (10 min exposición + 5 min preguntas del tribunal)</li>
+            <li>Soporte digital obligatorio: presentación interactiva (Genially/Canva), vídeo demostrativo o prototipo funcional del servicio diseñado</li>
+            <li>Coevaluación entre pares: rúbrica digital de 5 criterios (contenido, fundamentación DigComp, tecnología empleada, calidad comunicativa, originalidad)</li>
+            <li>Feedback estructurado del docente a cada grupo: fortalezas, áreas de mejora, valoración DigComp integrada</li>
+            <li>Reflexión individual cierre: «3 aprendizajes transformadores, 2 retos superados, 1 competencia a desarrollar» (Google Forms anónimo)</li>
+            <li>DigComp-Sat final: repetición del autodiagnóstico de la sesión 1 para visualizar la progresión real del curso</li>
+            <li>Comparativa S01 vs S15 en pantalla: cada estudiante ve su evolución en las 5 áreas DigComp 3.0 (gráfico radar)</li>
+            <li>Presentación del mapa de recursos para formación continua: INTEF, DigComp Academy, MOOC Europa, Coursera, LinkedIn Learning</li>
+            <li>Encuesta de satisfacción y evaluación docente (Mentimeter en tiempo real)</li>
+            <li>Cierre ceremonial: entrega simbólica de «Pasaporte Digital DigComp 3.0» con nivel autodiagnosticado y PDD firmado</li>
           </ul>
         </div>
         <div class="sblock">
-          <h4>Proyecto final (descripción)</h4>
+          <h4>Proyecto final — criterios y entregables</h4>
           <ul>
-            <li><strong>Objetivo:</strong> diseñar un servicio de orientación laboral digitalmente mediado para un colectivo específico</li>
-            <li><strong>Entregables:</strong> presentación interactiva (Genially/Canva), unidad formativa en Moodle o Google Classroom, política de privacidad RGPD, análisis de herramientas TIC utilizadas</li>
-            <li><strong>Colectivos sugeridos:</strong> jóvenes NEET, mayores de 45 años en reconversión, mujeres víctimas de violencia de género, personas con discapacidad, inmigrantes</li>
-            <li><strong>Grupos:</strong> 3-4 personas</li>
+            <li><strong>Objetivo:</strong> diseñar un servicio de orientación laboral digitalmente mediado, accesible e inclusivo, para un colectivo específico en situación de vulnerabilidad</li>
+            <li><strong>Entregables obligatorios:</strong> presentación interactiva (Genially/Canva), unidad formativa en Moodle o Google Classroom con actividades activas, política de privacidad RGPD adaptada al servicio, análisis crítico de las herramientas TIC elegidas con justificación DigComp</li>
+            <li><strong>Entregable complementario:</strong> vídeo-pitch de 3 min presentando el servicio a potenciales usuarios</li>
+            <li><strong>Colectivos sugeridos:</strong> jóvenes NEET, mayores de 45 en reconversión, mujeres víctimas de violencia de género, personas con discapacidad, inmigrantes en proceso de integración</li>
+            <li><strong>Grupos:</strong> 3-4 personas; evaluación conjunta (proyecto) e individual (portfolio + PDD)</li>
+            <li><strong>Criterio transversal:</strong> el proyecto debe explicitar las competencias DigComp 3.0 que moviliza y el nivel de proficiencia al que apunta</li>
           </ul>
         </div>
         <div class="sblock">
-          <h4>Recursos de evaluación</h4>
+          <h4>Recursos y referencias</h4>
           <ul>
-            <li>Rúbrica de evaluación del proyecto final (disponible en EVA-US desde la sesión 1)</li>
-            <li>Rúbrica de coevaluación entre pares (Google Forms)</li>
-            <li>Cuestionario de satisfacción y evaluación docente (Mentimeter)</li>
-            <li>Portfolio digital individual: compilación de todas las prácticas del curso</li>
-            <li>Recursos recomendados para formación continua: Coursera, LinkedIn Learning, MOOCs INTEF</li>
+            <li>Rúbrica de evaluación del proyecto final (disponible en EVA-US desde la sesión 1; incluye criterio DigComp)</li>
+            <li>Rúbrica de coevaluación entre pares (Google Forms con escala 1-4 y campo de comentario abierto)</li>
+            <li>Portfolio digital individual: compilación reflexiva de las 14 prácticas del curso con evidencias y autoevaluación DigComp</li>
+            <li>DigComp Academy — plataforma de autoformación oficial EU: <em>digcomp.eu</em></li>
+            <li>INTEF (2022). <em>Marco de Competencia Digital Docente</em>. Instituto Nacional de Tecnologías Educativas y de Formación del Profesorado.</li>
+            <li>Redecker, C. &amp; Punie, Y. (2017). <em>European Framework for the Digital Competence of Educators: DigCompEdu</em>. JRC Science for Policy Report.</li>
+            <li>Carretero, S. et al. (2017). <em>DigComp 2.1: The Digital Competence Framework for Citizens with eight proficiency levels</em>. JRC Science for Policy Report.</li>
           </ul>
         </div>
+      </div>
+      <div class="sblock" style="margin-top:16px;">
+        <h4>Actividades</h4>
+        <ol>
+          <li><strong>Presentación final de proyecto (DigComp 3.1 + 2.1):</strong> cada grupo expone su servicio de orientación digitalmente mediado usando soporte interactivo (Genially, Canva, Prezi). La exposición debe incluir un apartado explícito sobre «Competencias DigComp 3.0 movilizadas» y demostrar dominio técnico de las herramientas elegidas. El tribunal (docente + 2 grupos evaluadores) completa la rúbrica digital en tiempo real.</li>
+          <li><strong>Coevaluación con rúbrica digital (DigComp 2.2 + 5.3):</strong> cada grupo evalúa a otros dos grupos usando la rúbrica en Google Forms (5 criterios, escala 1-4, comentario libre). Al finalizar todas las presentaciones, el docente proyecta los resultados agregados anónimos: cada grupo ve la distribución de puntuaciones recibidas. Se discuten brevemente los criterios que generaron más varianza.</li>
+          <li><strong>DigComp-Sat S15 — diagnóstico de cierre (DigComp 5.4):</strong> cada estudiante repite el autodiagnóstico inicial de S01 (mismas 21 afirmaciones, escala 1-5). Descarga su hoja de resultados y compara con la de S01: calcula la diferencia por área y por competencia. Identifica las 3 competencias con mayor crecimiento y las 2 con mayor margen de mejora pendiente. Comparte voluntariamente su gráfico radar antes/después en el chat de Mentimeter.</li>
+          <li><strong>Plan de Desarrollo Digital (PDD) individual (DigComp 5.4 + 1.2):</strong> a partir de la comparativa S01-S15, cada estudiante redacta un PDD de 1 página: (a) nivel DigComp actual por área (1-8), (b) 3 metas de mejora para los próximos 12 meses con recursos específicos (MOOC, herramienta, práctica), (c) indicadores de logro medibles. El PDD se sube al portfolio digital como entregable final evaluable.</li>
+          <li><strong>Cierre y prospectiva (DigComp 5.2):</strong> el docente presenta brevemente las tendencias emergentes post-curso: IA generativa avanzada (GPT-4o, Gemini, Claude), metaverso educativo, blockchain en credenciales digitales, computación cuántica accesible. Los estudiantes votan en Mentimeter las 3 tecnologías que planean explorar en los próximos 6 meses. Cierre con el «Pasaporte Digital DigComp 3.0»: documento descargable con el nivel autodiagnosticado y los compromisos del PDD.</li>
+        </ol>
+      </div>
+      <div class="sesion-digcomp">
+        <span class="sdc-label">DigComp 3.0 →</span>
+        <span class="sdc-comp"><b>3.1</b> Desarrollo de contenidos digitales</span>
+        <span class="sdc-comp"><b>2.1</b> Interacción mediante tecnologías digitales</span>
+        <span class="sdc-comp"><b>2.2</b> Intercambio de información y contenidos</span>
+        <span class="sdc-comp"><b>5.3</b> Gestión de la identidad digital</span>
+        <span class="sdc-comp"><b>5.4</b> Identificación de lagunas competenciales (cierre S01→S15)</span>
+        <span class="sdc-comp"><b>5.2</b> Identificación de necesidades y respuestas tecnológicas</span>
       </div>
     </div>
   </div>
@@ -1679,7 +2060,7 @@ footer .f-red { color: var(--us-rojo); }
 </section>
 
 <!-- ══════════════════════════════════ -->
-<!-- 05. EVALUACIÓN                     -->
+<!-- 06. EVALUACIÓN                     -->
 <!-- ══════════════════════════════════ -->
 <section id="evaluacion">
   <div class="sec-hdr">
@@ -1732,7 +2113,7 @@ footer .f-red { color: var(--us-rojo); }
 </section>
 
 <!-- ══════════════════════════════════ -->
-<!-- 06. BIBLIOGRAFÍA                   -->
+<!-- 07. BIBLIOGRAFÍA                   -->
 <!-- ══════════════════════════════════ -->
 <section id="bibliografia">
   <div class="sec-hdr">
@@ -1744,7 +2125,7 @@ footer .f-red { color: var(--us-rojo); }
   <div class="biblio-sec">
     <h3>Bibliografía básica</h3>
     <div class="ref" data-n="01"><span class="ref-year">2021</span>Tanenbaum, A. S. y Wetherall, D. J. (2021). <em>Redes de computadoras</em> (6.ª ed.). Pearson Education. ISBN: 978-0-13-468010-6</div>
-    <div class="ref" data-n="02"><span class="ref-year">2022</span>Vuorikari, R., Kluzer, S. y Punie, Y. (2022). <a href="https://publications.jrc.ec.europa.eu/repository/handle/JRC128415" target="_blank" rel="noopener"><em>DigComp 2.2: The Digital Competence Framework for Citizens — With new examples of knowledge, skills and attitudes</em></a>. Publications Office of the European Union. <a class="doi" href="https://doi.org/10.2760/115376" target="_blank" rel="noopener">doi:10.2760/115376</a></div>
+    <div class="ref" data-n="02"><span class="ref-year">2025</span>Vuorikari, R. et al. (2025). <a href="https://joint-research-centre.ec.europa.eu/projects-and-activities/education-and-training/digital-transformation-education/digital-competence-framework-digcomp/digcomp-30_en" target="_blank" rel="noopener"><em>DigComp 3.0: The Digital Competence Framework for Citizens</em></a>. Publications Office of the European Union. Joint Research Centre (JRC).</div>
     <div class="ref" data-n="03"><span class="ref-year">2023</span>Cedefop (2023). <a href="https://www.cedefop.europa.eu/en/publications/5597" target="_blank" rel="noopener"><em>Skills and the green transition</em></a>. Publications Office of the European Union. Cedefop research paper, 84. <a class="doi" href="https://doi.org/10.2801/954117" target="_blank" rel="noopener">doi:10.2801/954117</a></div>
     <div class="ref" data-n="04"><span class="ref-year">2022</span>Zawacki-Richter, O. y Latchem, C. (Eds.) (2022). <em>Instructional Design in Online Learning: Theory, Research and Practice</em>. Springer.</div>
     <div class="ref" data-n="05"><span class="ref-year">2024</span>Comisión Europea (2024). <a href="https://digital-strategy.ec.europa.eu/en/policies/desi" target="_blank" rel="noopener"><em>Digital Economy and Society Index (DESI) 2024</em></a>. Directorate-General for Communications Networks, Content and Technology.</div>

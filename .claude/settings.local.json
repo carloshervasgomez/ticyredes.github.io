@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(where node:*)",
+      "Bash(where python:*)",
+      "Bash(where python3:*)",
+      "Bash(powershell -File:*)",
+      "Bash(powershell -ExecutionPolicy Bypass -File 'c:\\\\Users\\\\carlo\\\\ticyredes\\\\fix_sections.ps1')"
+    ]
+  }
+}
