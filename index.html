@@ -885,6 +885,53 @@ a.tag:hover {
   margin-right: 3px;
 }
 
+/* ── Contenido expandible dentro de .sblock ────────────────── */
+.sblock details.cont-item {
+  margin: 0;
+  padding: 0;
+}
+.sblock details.cont-item > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 5px 0 5px 18px;
+  position: relative;
+  font-size: inherit;
+  color: var(--us-negro);
+  line-height: 1.45;
+  border-radius: 3px;
+  transition: background .15s;
+}
+.sblock details.cont-item > summary::-webkit-details-marker { display: none; }
+.sblock details.cont-item > summary::before {
+  content: '▶';
+  font-size: 9px;
+  color: var(--us-rojo);
+  position: absolute;
+  left: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform .2s;
+}
+.sblock details.cont-item[open] > summary::before {
+  transform: translateY(-50%) rotate(90deg);
+}
+.sblock details.cont-item > summary:hover {
+  background: var(--us-rojo-pale);
+}
+.sblock details.cont-item > summary strong {
+  color: var(--us-rojo-dark, #8b1a1a);
+}
+.sblock details.cont-item .cont-body {
+  margin: 4px 0 8px 18px;
+  padding: 8px 12px;
+  background: #faf7f7;
+  border-left: 3px solid var(--us-rojo);
+  border-radius: 0 4px 4px 0;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #3a3a3a;
+}
+
 .recursos-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1202,18 +1249,78 @@ footer .f-red { color: var(--us-rojo); }
         <div class="sblock">
           <h4>Contenidos</h4>
           <ul>
-            <li><strong>Evolución histórica de las TIC y el trabajo:</strong> de la mecanización industrial (1.ª revolución) a la automatización (2.ª), la digitalización (3.ª) y la convergencia IA-física-biológica (4.ª). Hitos: nacimiento de internet (ARPANET, 1969), la web (1991), el móvil inteligente (2007), el cloud masivo (2010), la IA generativa (2022)</li>
-            <li><strong>Conceptos fundamentales del ecosistema digital:</strong> hardware (CPU, RAM, almacenamiento, periféricos), software (sistema operativo, middleware, aplicaciones), firmware, virtualización, contenedores (Docker), edge computing y dispositivos IoT en organizaciones</li>
-            <li><strong>La empresa digital:</strong> infraestructura on-premise vs. cloud (IaaS, PaaS, SaaS); modelos híbridos; ecosistema de aplicaciones de productividad (Microsoft 365, Google Workspace); intranet, extranet y servicios digitales al ciudadano</li>
-            <li><strong>Transformación digital (TD):</strong> definición técnica vs. cultural; fases de madurez (Westerman et al.); diferencia entre digitalización, informatización y transformación; casos de TD en servicios de empleo españoles (SEPE, portales autonómicos) y en Andalucía (Junta Digital)</li>
-            <li><strong>Impacto en el empleo y los perfiles laborales:</strong> automatización de tareas rutinarias (RPA, IA); nuevos perfiles digitales (data analyst, community manager, UX designer, prompt engineer); transformación de perfiles clásicos (orientador/a laboral digital, formador/a e-learning); informe WEF Future of Jobs 2025</li>
-            <li><strong>Brecha digital — dimensiones y colectivos:</strong> brecha de acceso (hardware, conectividad); brecha de uso (habilidades, confianza); brecha de beneficio (aprovechamiento real); grupos especialmente vulnerables (mayores, bajo nivel educativo, zonas rurales, personas con discapacidad); datos INE 2024 para España y Andalucía</li>
-            <li><strong>Indicadores DESI 2024:</strong> estructura del índice (Conectividad, Capital Humano, Uso de Internet, Integración de tecnología digital, Servicios públicos digitales); posición de España (puesto 12/27 UE); fortalezas (cobertura 5G, administración electrónica) y debilidades (especialistas TIC, mujeres en TIC)</li>
-            <li><strong>Marco DigComp 3.0 — visión panorámica:</strong> historia de las versiones (1.0→2.0→2.1→2.2→3.0); las 5 áreas y sus 21 competencias numeradas; los 8 niveles de proficiencia agrupados en 4 rangos (Básico 1-2, Intermedio 3-4, Avanzado 5-6, Altamente especializado 7-8); descriptores de cada nivel (ej.: nivel 3 = «con orientación»); integración transversal de la IA en DigComp 3.0 como nuevo eje</li>
-            <li><strong>Las 5 áreas DigComp 3.0 con sus competencias:</strong> Área 1 — Información y alfabetización informacional (1.1 Navegar y filtrar, 1.2 Evaluar datos, 1.3 Gestionar datos); Área 2 — Comunicación y colaboración (2.1–2.6); Área 3 — Creación de contenidos digitales (3.1–3.4); Área 4 — Seguridad (4.1–4.4); Área 5 — Resolución de problemas (5.1–5.4)</li>
-            <li><strong>DigComp para la orientación laboral:</strong> por qué la competencia digital es hoy un requisito transversal en cualquier itinerario de inserción; cómo el orientador/a puede diagnosticar y reforzar competencias DigComp en los usuarios; ejemplos de ítems del DigComp-Sat aplicados a colectivos vulnerables</li>
-            <li><strong>Herramientas de autodiagnóstico:</strong> DigComp-Sat (JRC, 2025) — cuestionario oficial de 21 ítems con generación automática de perfil radar; INTEF Test de Competencia Digital (para docentes); SELFIE (Comisión Europea, para centros educativos)</li>
-            <li><strong>Presentación del curso:</strong> programa semana a semana, metodología (aprendizaje basado en proyectos + DigComp como hilo), sistema de evaluación (proyecto 40 %, portfolio 30 %, participación 20 %, coevaluación 10 %), portfolio digital en EVA-US y criterios de entrega</li>
+            <li>
+              <details class="cont-item">
+                <summary><strong>Evolución histórica de las TIC y el trabajo</strong></summary>
+                <div class="cont-body">De la mecanización industrial (1.ª revolución) a la automatización (2.ª), la digitalización (3.ª) y la convergencia IA-física-biológica (4.ª revolución industrial). Hitos clave: nacimiento de internet (ARPANET, 1969), aparición de la web (Tim Berners-Lee, 1991), eclosión del móvil inteligente (iPhone, 2007), masificación del cloud computing (AWS, Azure, 2010–2015) e irrupción de la IA generativa (GPT-3, 2020; ChatGPT, 2022; GPT-4o y Gemini, 2024). Cada ola tecnológica ha desplazado tareas, creado nuevas ocupaciones y exigido una actualización permanente de competencias.</div>
+              </details>
+            </li>
+            <li>
+              <details class="cont-item">
+                <summary><strong>Conceptos fundamentales del ecosistema digital</strong></summary>
+                <div class="cont-body">Hardware: CPU (procesamiento), RAM (memoria volátil), almacenamiento (HDD, SSD, NVMe), periféricos de entrada/salida. Software: sistema operativo (Windows, macOS, Linux, Android/iOS), middleware (capa de integración entre apps), aplicaciones de usuario final. Firmware: software integrado en hardware (BIOS/UEFI, routers). Virtualización: ejecutar múltiples sistemas sobre un mismo hardware físico (VMware, Hyper-V). Contenedores (Docker, Kubernetes): unidades ligeras y portátiles de software. Edge computing: procesamiento cerca del origen de los datos para reducir latencia. Dispositivos IoT en organizaciones: sensores, cámaras, lectores, wearables conectados a la red corporativa y sus implicaciones de seguridad.</div>
+              </details>
+            </li>
+            <li>
+              <details class="cont-item">
+                <summary><strong>La empresa digital</strong></summary>
+                <div class="cont-body">Infraestructura on-premise (servidores propios, control total, coste fijo elevado) vs. cloud pública (IaaS — alquiler de servidores virtuales; PaaS — plataforma de desarrollo; SaaS — software como servicio: Google Workspace, Microsoft 365, Salesforce). Modelos híbridos y multi-cloud. Ecosistema de productividad: suites ofimáticas colaborativas, herramientas de gestión de proyectos (Trello, Asana, Notion), CRM y ERP en la nube. Intranet (red interna corporativa), extranet (acceso controlado de socios/clientes) y servicios digitales al ciudadano (sede electrónica, portal de empleo, cita previa).</div>
+              </details>
+            </li>
+            <li>
+              <details class="cont-item">
+                <summary><strong>Transformación digital (TD)</strong></summary>
+                <div class="cont-body">Definición técnica: adopción de tecnologías digitales para optimizar procesos. Definición cultural (la más relevante): cambio profundo en la forma de trabajar, relacionarse con los usuarios y crear valor, impulsado por lo digital. Fases de madurez digital (Westerman, Bonnet &amp; McAfee): Principiante → Conservador → Moderno → Líder digital. Diferencia entre: informatización (pasar papel a ordenador), digitalización (automatizar procesos) y transformación digital (rediseñar el modelo de negocio/servicio). Casos reales: SEPE (cita previa online, SISPE), portales autonómicos de empleo (SAE en Andalucía), Oficina de Transformación Digital de la Junta de Andalucía, sede electrónica y Cl@ve.</div>
+              </details>
+            </li>
+            <li>
+              <details class="cont-item">
+                <summary><strong>Impacto en el empleo y los perfiles laborales</strong></summary>
+                <div class="cont-body">Automatización de tareas rutinarias y codificables mediante RPA (Robotic Process Automation) e IA; las tareas cognitivas no rutinarias y las relacionales son las más resistentes. Nuevos perfiles digitales emergentes: data analyst, data scientist, community manager, UX/UI designer, DevOps engineer, prompt engineer, AI ethicist. Transformación de perfiles clásicos: el/la orientador/a laboral integra ahora videoconferencia, plataformas digitales de empleo (Infojobs, LinkedIn, Indeed), IA para matching de perfiles y gestión de datos de usuarios. El/la formador/a debe dominar e-learning, LMS y diseño instruccional digital. Informe WEF Future of Jobs 2025: las 10 ocupaciones de mayor crecimiento y las 10 en mayor declive; las competencias transversales más demandadas (pensamiento crítico, alfabetización digital, resiliencia).</div>
+              </details>
+            </li>
+            <li>
+              <details class="cont-item">
+                <summary><strong>Brecha digital — dimensiones y colectivos</strong></summary>
+                <div class="cont-body">Tres niveles de brecha digital (van Dijk): (1) Brecha de acceso: ausencia de hardware adecuado o conectividad de banda ancha (aún el 8 % de hogares españoles sin internet en 2024, INE). (2) Brecha de uso: dificultades de habilidades, confianza y motivación para usar la tecnología; la más compleja de abordar desde la orientación. (3) Brecha de beneficio: tener acceso y habilidades pero no aprovecharlas de forma productiva. Colectivos prioritarios para el orientador/a: mayores de 65 años (54 % sin competencias digitales básicas), personas con bajo nivel educativo, residentes en zonas rurales (despliegue 5G pendiente en el 15 % del territorio), personas con discapacidad (barreras de accesibilidad), personas migrantes (idioma + competencia digital). Datos INE 2024 y DESI para España y Andalucía.</div>
+              </details>
+            </li>
+            <li>
+              <details class="cont-item">
+                <summary><strong>Indicadores DESI 2024</strong></summary>
+                <div class="cont-body">El Digital Economy and Society Index (DESI) mide anualmente el avance digital de los 27 estados miembros de la UE. Cinco dimensiones: (1) Conectividad — cobertura y adopción de banda ancha fija y móvil; (2) Capital Humano — habilidades digitales básicas y avanzadas; (3) Uso de Internet — servicios usados por ciudadanos (banca, compras, redes); (4) Integración de tecnología digital — adopción por empresas (cloud, IA, big data, e-commerce); (5) Servicios públicos digitales — administración electrónica y salud digital. Posición de España en 2024: puesto 12/27 (sobre la media europea). Fortalezas: cobertura de red 5G (top 5 UE), administración electrónica (Cl@ve, sede electrónica), penetración de banda ancha. Debilidades: escasez de especialistas TIC (solo el 4,8 % de los ocupados vs. 5,8 % media UE), infrarrepresentación de mujeres en TIC (solo el 19 %).</div>
+              </details>
+            </li>
+            <li>
+              <details class="cont-item">
+                <summary><strong>Marco DigComp 3.0 — visión panorámica</strong></summary>
+                <div class="cont-body">Historia de versiones: DigComp 1.0 (2013, Vuorikari &amp; Punie) → 2.0 (2016, estructura actual de 5 áreas) → 2.1 (2017, 8 niveles de proficiencia) → 2.2 (2022, casos de uso con IA y datos) → 3.0 (2025, integración plena de la IA como competencia transversal en todas las áreas). Las 5 áreas y sus 21 competencias se mantienen desde 2.0, pero los descriptores e indicadores evolucionan. Los 8 niveles de proficiencia se agrupan en 4 rangos: Básico (1–2: «con apoyo»), Intermedio (3–4: «de forma autónoma»), Avanzado (5–6: «ayudando a otros»), Altamente especializado (7–8: «en contextos complejos y novedosos»). DigComp 3.0 incorpora la IA como nuevo eje transversal: cada competencia incluye ahora un descriptor de «uso responsable de la IA» y ejemplos de aplicación de IA generativa.</div>
+              </details>
+            </li>
+            <li>
+              <details class="cont-item">
+                <summary><strong>Las 5 áreas DigComp 3.0 con sus 21 competencias</strong></summary>
+                <div class="cont-body"><strong>Área 1 — Información y alfabetización informacional:</strong> 1.1 Navegar, buscar y filtrar datos e información; 1.2 Evaluar datos, información y contenidos digitales; 1.3 Gestionar datos, información y contenidos digitales. <strong>Área 2 — Comunicación y colaboración:</strong> 2.1 Interactuar mediante tecnologías digitales; 2.2 Compartir mediante tecnologías digitales; 2.3 Participar en la ciudadanía digital; 2.4 Colaborar mediante tecnologías digitales; 2.5 Normas de conducta en línea (netiqueta); 2.6 Gestionar la identidad digital. <strong>Área 3 — Creación de contenidos digitales:</strong> 3.1 Desarrollar contenidos digitales; 3.2 Integrar y reelaborar contenidos digitales; 3.3 Derechos de autor y licencias; 3.4 Programación y automatización. <strong>Área 4 — Seguridad y bienestar digital:</strong> 4.1 Proteger dispositivos; 4.2 Proteger datos personales y privacidad; 4.3 Proteger la salud y el bienestar digital; 4.4 Proteger el entorno (sostenibilidad digital). <strong>Área 5 — Resolución de problemas:</strong> 5.1 Resolver problemas técnicos; 5.2 Identificar necesidades y respuestas tecnológicas; 5.3 Usar la tecnología de forma creativa; 5.4 Identificar lagunas en la competencia digital.</div>
+              </details>
+            </li>
+            <li>
+              <details class="cont-item">
+                <summary><strong>DigComp para la orientación laboral</strong></summary>
+                <div class="cont-body">La competencia digital ya no es opcional en ningún itinerario de inserción laboral: el 90 % de los empleos requiere algún nivel de competencia digital (CEDEFOP, 2022). El orientador/a tiene un doble rol: (a) desarrollar su propia competencia digital para prestar un servicio de calidad (uso de plataformas digitales de empleo, entrevistas por videoconferencia, gestión de datos de usuarios, e-coaching), y (b) diagnosticar y reforzar las competencias DigComp de sus usuarios como parte del itinerario de inserción. El DigComp-Sat puede aplicarse directamente con colectivos en atención: se adapta a nivel básico (preguntas simplificadas) y permite detectar en 15 minutos las áreas prioritarias de intervención digital para cada usuario.</div>
+              </details>
+            </li>
+            <li>
+              <details class="cont-item">
+                <summary><strong>Herramientas de autodiagnóstico de competencia digital</strong></summary>
+                <div class="cont-body"><strong>DigComp-Sat (JRC, 2025):</strong> cuestionario oficial de 21 ítems (uno por competencia), escala Likert 1-5, generación automática de perfil radar descargable en PDF. Disponible en varios idiomas, incluyendo español. Acceso libre en joint-research-centre.ec.europa.eu. <strong>INTEF Test de Competencia Digital:</strong> versión adaptada para docentes españoles, alineada con el Marco DigCompEdu; incluye plan de formación personalizado. Disponible en intef.es. <strong>SELFIE (Comisión Europea):</strong> herramienta de autodiagnóstico para centros educativos completos (docentes, estudiantes y equipo directivo); genera un informe institucional de brecha digital. <strong>Europass Digital Skills:</strong> perfil de competencias digitales exportable al CV Europass, basado en DigComp 2.1.</div>
+              </details>
+            </li>
+            <li>
+              <details class="cont-item">
+                <summary><strong>Presentación del curso: programa, metodología y evaluación</strong></summary>
+                <div class="cont-body">El curso se articula en 15 sesiones distribuidas en 5 bloques temáticos: I Fundamentos (S01-S03), II Comunicación y colaboración (S04-S06), III Creación y seguridad (S07-S10), IV Sociedad digital y trabajo (S11-S14), V Cierre (S15). Metodología: aprendizaje basado en proyectos (ABPj) con el DigComp 3.0 como hilo conductor; cada sesión incluye al menos una actividad práctica con herramientas digitales reales. Sistema de evaluación: proyecto final grupal (40 %), portfolio digital individual (30 %), participación activa y práctica en sesiones (20 %), coevaluación entre pares (10 %). El portfolio digital se gestiona en EVA-US (Moodle): una entrada por sesión con evidencia de la actividad realizada + autoevaluación DigComp. El proyecto final se presenta en S15.</div>
+              </details>
+            </li>
           </ul>
         </div>
         <div class="sblock">
