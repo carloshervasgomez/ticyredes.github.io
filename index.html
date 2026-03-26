@@ -103,7 +103,6 @@ header {
   flex-shrink: 0;
   background: transparent;
 }
-.header-content {}
 .header-pretitle {
   font-family: var(--font-sans);
   font-size: 11px;
@@ -231,6 +230,67 @@ section { margin-bottom: 80px; }
   flex: 1;
   height: 1px;
   background: var(--us-borde);
+}
+
+.profesor-card {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 18px;
+  align-items: center;
+  background: var(--us-blanco);
+  border: 1px solid var(--us-borde);
+  border-radius: 8px;
+  padding: 18px;
+  margin-top: 16px;
+}
+
+.profesor-card img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--us-borde);
+  background: var(--us-fondo);
+}
+
+.profesor-info h3 {
+  margin: 0 0 4px;
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+}
+
+.profesor-info p {
+  margin: 0 0 10px;
+  color: var(--us-texto-suave);
+}
+
+.profesor-info ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.profesor-info li {
+  margin-bottom: 6px;
+  font-size: 13px;
+}
+
+.profesor-info a {
+  color: var(--us-rojo);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.link-icon {
+  font-size: 0.9em;
+  display: inline-block;
+  line-height: 1;
+}
+
+.profesor-info a:hover {
+  text-decoration: underline;
 }
 
 /* ── PRESENTACIÓN ── */
@@ -733,6 +793,7 @@ footer .f-red { color: var(--us-rojo); }
 <nav>
   <div class="nav-inner">
     <a href="#presentacion" class="active">Presentación</a>
+    <a href="#profesor">Profesor</a>
     <a href="#bloques">Bloques temáticos</a>
     <a href="#sesiones">Sesiones</a>
     <a href="#evaluacion">Evaluación</a>
@@ -813,11 +874,41 @@ footer .f-red { color: var(--us-rojo); }
 </section>
 
 <!-- ══════════════════════════════════ -->
-<!-- 02. BLOQUES TEMÁTICOS              -->
+<!-- 02. PROFESOR                       -->
+<!-- ══════════════════════════════════ -->
+<section id="profesor">
+  <div class="sec-hdr">
+    <span class="sec-num">02 —</span>
+    <h2 class="sec-title">Profesor</h2>
+    <div class="sec-line"></div>
+  </div>
+  <div class="profesor-card">
+    <img src="https://departamento.us.es/ddoe/wp-content/uploads/elementor/thumbs/Carlos-Hervas-Gomez-rdtd4ms5vj6mihzw0c0qinhpl8sudm5itejltd1nuo.jpg" alt="Carlos Hervás Gómez" loading="lazy" />
+    <div class="profesor-info">
+      <h3>Dr. Carlos Hervás-Gómez</h3>
+      <p>Profesor Titular de Universidad</p>
+      <ul>
+        <li><a href="mailto:hervas@us.es"><span class="link-icon">✉️</span>hervas@us.es</a></li>
+        <li><a href="tel:955420590"><span class="link-icon">📞</span>Nº Teléfono despacho: 955420590</a></li>
+        <li><span class="link-icon">📍</span>Nº despacho: 4.04</li>
+        <li><span class="link-icon">📬</span>Nº buzón: 4.04</li>
+        <li><a href="https://investigacion.us.es/sisius/sis_showpub.php?idpers=3722" target="_blank" rel="noopener"><span class="link-icon">🌐</span>SISIUS</a></li>
+        <li><a href="https://bibliometria.us.es/prisma/investigador/1970" target="_blank" rel="noopener"><span class="link-icon">📊</span>PRISMA</a></li>
+        <li><a href="https://orcid.org/0000-0002-0904-9041" target="_blank" rel="noopener"><span class="link-icon">🆔</span>ORCID</a></li>
+        <li><a href="https://grupotecnologiaeducativa.es/" target="_blank" rel="noopener"><span class="link-icon">🔬</span>Web de investigación</a></li>
+        <li><a href="https://grupo.us.es/gidus" target="_blank" rel="noopener"><span class="link-icon">🏷️</span>Web de grupo</a></li>
+        <li><a href="https://www.researchgate.net/profile/Carlos-Hervas-Gomez?ev=hdr_xprf" target="_blank" rel="noopener"><span class="link-icon">👨‍💻</span>Web personal</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ -->
+<!-- 03. BLOQUES TEMÁTICOS              -->
 <!-- ══════════════════════════════════ -->
 <section id="bloques">
   <div class="sec-hdr">
-    <span class="sec-num">02 —</span>
+    <span class="sec-num">03 —</span>
     <h2 class="sec-title">Bloques temáticos</h2>
     <span class="sec-line"></span>
   </div>
@@ -879,11 +970,11 @@ footer .f-red { color: var(--us-rojo); }
 </section>
 
 <!-- ══════════════════════════════════ -->
-<!-- 03. SESIONES                       -->
+<!-- 04. SESIONES                       -->
 <!-- ══════════════════════════════════ -->
 <section id="sesiones">
   <div class="sec-hdr">
-    <span class="sec-num">03 —</span>
+    <span class="sec-num">04 —</span>
     <h2 class="sec-title">Desarrollo detallado de sesiones</h2>
     <span class="sec-line"></span>
   </div>
@@ -1588,11 +1679,11 @@ footer .f-red { color: var(--us-rojo); }
 </section>
 
 <!-- ══════════════════════════════════ -->
-<!-- 04. EVALUACIÓN                     -->
+<!-- 05. EVALUACIÓN                     -->
 <!-- ══════════════════════════════════ -->
 <section id="evaluacion">
   <div class="sec-hdr">
-    <span class="sec-num">04 —</span>
+    <span class="sec-num">05 —</span>
     <h2 class="sec-title">Sistema de evaluación</h2>
     <span class="sec-line"></span>
   </div>
@@ -1641,11 +1732,11 @@ footer .f-red { color: var(--us-rojo); }
 </section>
 
 <!-- ══════════════════════════════════ -->
-<!-- 05. BIBLIOGRAFÍA                   -->
+<!-- 06. BIBLIOGRAFÍA                   -->
 <!-- ══════════════════════════════════ -->
 <section id="bibliografia">
   <div class="sec-hdr">
-    <span class="sec-num">05 —</span>
+    <span class="sec-num">06 —</span>
     <h2 class="sec-title">Bibliografía (2020–2025)</h2>
     <span class="sec-line"></span>
   </div>
@@ -1711,11 +1802,11 @@ footer .f-red { color: var(--us-rojo); }
 </section>
 
 <!-- ══════════════════════════════════ -->
-<!-- 06. RECURSOS                       -->
+<!-- 07. RECURSOS                       -->
 <!-- ══════════════════════════════════ -->
 <section id="recursos">
   <div class="sec-hdr">
-    <span class="sec-num">06 —</span>
+    <span class="sec-num">07 —</span>
     <h2 class="sec-title">Recursos digitales del curso</h2>
     <span class="sec-line"></span>
   </div>
